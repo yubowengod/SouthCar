@@ -13,22 +13,94 @@ import android.widget.TextView;
 
 import com.example.god.southcar.R;
 import com.example.picturewall.MainActivity_uploadpic;
+import com.example.picturewall.PhotoWallAdapter;
 
 /**
  * Created by GOD on 2016/9/21.
  */
 public class MyFragment2 extends Fragment {
-
     private String content;
+
     public MyFragment2(String content) {
         this.content = content;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fg_content1,container,false);
+        View view = inflater.inflate(R.layout.fg_content2,container,false);
         TextView txt_content = (TextView) view.findViewById(R.id.txt_content);
         txt_content.setText(content);
         return view;
     }
+
+    /**
+     * 用于展示照片墙的GridView
+     */
+    private GridView mPhotoWall;
+
+    /**
+     * GridView的适配器
+     */
+    private PhotoWallAdapter mAdapter;
+
+    private int mImageThumbSize;
+    private int mImageThumbSpacing;
+
+    private Button btn_uploadpic_info;
+
+    public void onActivityCreated(Bundle savedInstanceState) {
+
+        super.onActivityCreated(savedInstanceState);
+
+        btn_uploadpic_info=(Button)getActivity().findViewById(R.id.btn_uploadpic_info);
+
+        btn_uploadpic_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),MainActivity_uploadpic.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        mImageThumbSize = getResources().getDimensionPixelSize(
+                R.dimen.image_thumbnail_size);
+        mImageThumbSpacing = getResources().getDimensionPixelSize(
+                R.dimen.image_thumbnail_spacing);
+        mPhotoWall = (GridView) getActivity().findViewById(R.id.gridview_fg_my);
+        mAdapter = new PhotoWallAdapter(getActivity(), 0, Images.imageThumbUrls,mPhotoWall);
+        mPhotoWall.setAdapter(mAdapter);
+        mPhotoWall.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        final int numColumns = (int) Math.floor(mPhotoWall
+                                .getWidth()
+                                / (mImageThumbSize + mImageThumbSpacing));
+                        if (numColumns > 0) {
+                            int columnWidth = (mPhotoWall.getWidth() / numColumns)
+                                    - mImageThumbSpacing;
+                            mAdapter.setItemHeight(columnWidth);
+                            mPhotoWall.getViewTreeObserver()
+                                    .removeGlobalOnLayoutListener(this);
+                        }
+                    }
+                }
+        );
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mAdapter.fluchCache();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // 退出程序时结束所有的下载任务
+        mAdapter.cancelAllTasks();
+    }
 }
+
+
+

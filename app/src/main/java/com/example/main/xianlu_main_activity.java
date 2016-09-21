@@ -93,7 +93,7 @@ public class xianlu_main_activity extends Activity {
 
             @Override
             public void run() {
-                xianlu_oracle.getImageromSdk();
+//                xianlu_oracle.getImageromSdk();
                 try {
                     mainHandler.post(new Runnable() {
                         @Override
@@ -127,14 +127,7 @@ public class xianlu_main_activity extends Activity {
 //                        "http://img.my.csdn.net/uploads/201410/19/1413698865_3560.jpg", "李四", "今天雾霾呢...", null);
 //                itemEntities.add(entity2);
 //
-//                ItemEntity entity3 = new ItemEntity(//
-//                        "http://img.my.csdn.net/uploads/201410/19/1413698837_5654.jpg", "王五", "今天好大的太阳...", null);
-//                itemEntities.add(entity3);
-//
-//                ItemEntity entity4 = new ItemEntity(//
-//                        "http://img.my.csdn.net/uploads/201410/19/1413698883_5877.jpg", "赵六", "今天下雨了...", null);
-//                itemEntities.add(entity4);
-                            //                            listView.setAdapter(new myListAdapt());
+
 //                         listview 点击事件
                             listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override

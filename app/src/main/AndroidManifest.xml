@@ -41,6 +41,40 @@
 
         </activity>
 
+
+
+        <activity android:name="com.example.register.registerActivity"></activity>
+
+
+        <activity android:name="com.arlen.photo.ui.MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.example.main.xianlu_main_activity"></activity>
+
+        <activity android:name="com.example.main.crm_main_activity"></activity>
+
+        <activity
+            android:name="com.arlen.photo.photopickup.view.PhotoPickupActivity"
+            android:label="照片选择"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.arlen.photo.photopickup.view.ImageLookActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="大图查看"
+            android:screenOrientation="portrait"/>
+
+
+
+        <activity android:name="com.example.picturewall.MainActivity_uploadpic">
+
+        </activity>
+        <activity android:name="com.example.imagedemo.ImagePagerActivity" >
+        </activity>
+
+
+
     </application>
 
 </manifest>
