@@ -1,7 +1,7 @@
 package com.example.oracle;
+
 import android.util.Log;
 import android.widget.ImageView;
-
 
 import com.example.upload.Data_up;
 
@@ -17,10 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by GOD on 2016/8/31.
+ * Created by GOD on 2016/9/21.
  */
-
-
 public class xianlu_oracle {
 
     public ImageView imageView;
@@ -96,3 +94,4 @@ public class xianlu_oracle {
 
 
 }
+

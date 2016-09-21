@@ -1,4 +1,4 @@
-package com.example.SpinnerAdapter;
+package com.example.oracle;
 
 import android.util.Log;
 
@@ -16,16 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by GOD on 2016/9/13.
+ * Created by GOD on 2016/9/21.
  */
-public class spinner_gongwei_oracle {
-
+public class select_spinner_xiangdian {
     public static List<String> List_result ;
 
-    public static void getImageromSdk(){
+    public static void getImageromSdk(String GW,String GX){
         try{
-            String methodName = "select_spinner_gongwei";
-            getImageFromAndroid(methodName);   //调用webservice
+            String methodName = "select_spinner_xiangdian";
+            getImageFromAndroid(methodName,GW,GX);   //调用webservice
             Log.i("connectWebService", "start");
         }
         catch(Exception e){
@@ -33,7 +32,7 @@ public class spinner_gongwei_oracle {
         }
     }
 
-    public static String getImageFromAndroid(String methodName){
+    public static String getImageFromAndroid(String methodName,String GW,String GX){
         Log.i("进入端口方法", "进入端口方法");
         // 创建HttpTransportSE传输对象
         HttpTransportSE ht = new HttpTransportSE(Data_up.getSERVICE_URL());
@@ -43,7 +42,8 @@ public class spinner_gongwei_oracle {
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             // 实例化SoapObject对象
             SoapObject soapObject = new SoapObject(Data_up.getSERVICE_NAMESPACE(),methodName);
-//            soapObject.addProperty("Imagefilename","111");
+            soapObject.addProperty("GW",GW);
+            soapObject.addProperty("GX",GX);
             envelope.bodyOut = soapObject;
             // 设置与.NET提供的webservice保持较好的兼容性
             envelope.dotNet = true;
@@ -72,7 +72,7 @@ public class spinner_gongwei_oracle {
 
     public static List<String> parseProvinceOrCity(SoapObject detail) {
         ArrayList<String> result = new ArrayList<String>();
-        for (int i = 0; i < detail.getPropertyCount(); i++) {
+        for (int i = 2; i < detail.getPropertyCount(); i=i+3) {
             // 解析
             result.add(detail.getProperty(i).toString().split(",")[0]);
         }
@@ -84,3 +84,4 @@ public class spinner_gongwei_oracle {
     }
 
 }
+

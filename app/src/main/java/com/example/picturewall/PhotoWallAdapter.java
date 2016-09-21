@@ -1,40 +1,41 @@
 package com.example.picturewall;
 
 /**
- * Created by GOD on 2016/9/17.
+ * Created by GOD on 2016/9/21.
  */
 
-        import java.io.BufferedInputStream;
-        import java.io.BufferedOutputStream;
-        import java.io.File;
-        import java.io.FileDescriptor;
-        import java.io.FileInputStream;
-        import java.io.IOException;
-        import java.io.OutputStream;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
-        import java.security.MessageDigest;
-        import java.security.NoSuchAlgorithmException;
-        import java.util.HashSet;
-        import java.util.Set;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Environment;
+import android.util.LruCache;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
 
-        import libcore.io.DiskLruCache;
-        import libcore.io.DiskLruCache.Snapshot;
-        import android.content.Context;
-        import android.content.pm.PackageInfo;
-        import android.content.pm.PackageManager.NameNotFoundException;
-        import android.graphics.Bitmap;
-        import android.graphics.BitmapFactory;
-        import android.os.AsyncTask;
-        import android.os.Environment;
-        import android.util.LruCache;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ArrayAdapter;
-        import android.widget.GridView;
-        import android.widget.ImageView;
-        import com.example.god.southcar.R;
+import com.example.god.southcar.R;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashSet;
+import java.util.Set;
+
+import libcore.io.DiskLruCache;
 
 /**
  * GridView的适配器，负责异步从网络上下载图片展示在照片墙上。
@@ -196,7 +197,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> {
             PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(),
                     0);
             return info.versionCode;
-        } catch (NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return 1;
@@ -270,7 +271,7 @@ public class PhotoWallAdapter extends ArrayAdapter<String> {
             imageUrl = params[0];
             FileDescriptor fileDescriptor = null;
             FileInputStream fileInputStream = null;
-            Snapshot snapShot = null;
+            DiskLruCache.Snapshot snapShot = null;
             try {
                 // 生成图片URL对应的key
                 final String key = hashKeyForDisk(imageUrl);

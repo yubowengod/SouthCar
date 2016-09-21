@@ -1,4 +1,4 @@
-package com.example.SpinnerAdapter;
+package com.example.oracle;
 
 import android.util.Log;
 
@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by GOD on 2016/9/14.
+ * Created by GOD on 2016/9/21.
  */
-public class select_spinner_xiangdian {
+public class spinner_gongxu_oracle {
     public static List<String> List_result ;
 
-    public static void getImageromSdk(String GW,String GX){
+    public static void getImageromSdk(String GW){
         try{
-            String methodName = "select_spinner_xiangdian";
-            getImageFromAndroid(methodName,GW,GX);   //调用webservice
+            String methodName = "select_spinner_gongxu";
+            getImageFromAndroid(methodName,GW);   //调用webservice
             Log.i("connectWebService", "start");
         }
         catch(Exception e){
@@ -32,7 +32,7 @@ public class select_spinner_xiangdian {
         }
     }
 
-    public static String getImageFromAndroid(String methodName,String GW,String GX){
+    public static String getImageFromAndroid(String methodName,String GW){
         Log.i("进入端口方法", "进入端口方法");
         // 创建HttpTransportSE传输对象
         HttpTransportSE ht = new HttpTransportSE(Data_up.getSERVICE_URL());
@@ -43,7 +43,6 @@ public class select_spinner_xiangdian {
             // 实例化SoapObject对象
             SoapObject soapObject = new SoapObject(Data_up.getSERVICE_NAMESPACE(),methodName);
             soapObject.addProperty("GW",GW);
-            soapObject.addProperty("GX",GX);
             envelope.bodyOut = soapObject;
             // 设置与.NET提供的webservice保持较好的兼容性
             envelope.dotNet = true;

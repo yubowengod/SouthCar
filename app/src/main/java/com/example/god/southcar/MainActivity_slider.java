@@ -17,15 +17,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.example.SpinnerAdapter.select_spinner_xiangdian;
-import com.example.SpinnerAdapter.spinner_gongwei_oracle;
-import com.example.SpinnerAdapter.spinner_gongxu_oracle;
 import com.example.main.Data;
 import com.example.main.MyFragment;
 import com.example.main.MyFragment1;
 import com.example.main.MyFragment2;
 import com.example.main.MyFragment3;
 import com.example.main.NewContentFragment;
+import com.example.oracle.select_spinner_xiangdian;
+import com.example.oracle.spinner_gongwei_oracle;
+import com.example.oracle.spinner_gongxu_oracle;
 import com.example.oracle.xianlu_oracle;
 
 import java.util.ArrayList;
@@ -74,44 +74,44 @@ public class MainActivity_slider extends AppCompatActivity
             @Override
             public void run() {
 
-//                xianlu_oracle.getImageromSdk();
-//
-//                spinner_gongwei_oracle.getImageromSdk();
-//
-//                gongwei = new String[spinner_gongwei_oracle.getList_result().size()];
-//
-//                gongxu = new String[spinner_gongwei_oracle.getList_result().size()][];
-//
-//                xiangdian = new String[spinner_gongwei_oracle.getList_result().size()][][];
-//
-//                for(int i=0;i<spinner_gongwei_oracle.getList_result().size();i++)
-//                {
-//                    gongwei[i]=spinner_gongwei_oracle.getList_result().get(i);
-//
-//                    spinner_gongxu_oracle.getImageromSdk(gongwei[i]);
-//
-//                    gongxu[i] = new String[spinner_gongxu_oracle.getList_result().size()];
-//
-//                    xiangdian[i] = new String[spinner_gongxu_oracle.getList_result().size()][];
-//
-//                    for (int j = 0;j<spinner_gongxu_oracle.getList_result().size();j++)
-//                    {
-//                        gongxu[i][j]=spinner_gongxu_oracle.getList_result().get(j);
-//
-//                        select_spinner_xiangdian.getImageromSdk(gongwei[i],gongxu[i][j]);
-//
-//                        xiangdian[i][j] = new String[select_spinner_xiangdian.getList_result().size()];
-//
-//                        for (int k = 0;k<select_spinner_xiangdian.getList_result().size();k++)
-//                        {
-//                            xiangdian[i][j][k] = select_spinner_xiangdian.getList_result().get(k);
-//                        }
-//                        select_spinner_xiangdian.getList_result().clear();
-//
-//                    }
-//                    spinner_gongxu_oracle.getList_result().clear();
-//
-//                }
+                xianlu_oracle.getImageromSdk();
+
+                spinner_gongwei_oracle.getImageromSdk();
+
+                gongwei = new String[spinner_gongwei_oracle.getList_result().size()];
+
+                gongxu = new String[spinner_gongwei_oracle.getList_result().size()][];
+
+                xiangdian = new String[spinner_gongwei_oracle.getList_result().size()][][];
+
+                for(int i=0;i<spinner_gongwei_oracle.getList_result().size();i++)
+                {
+                    gongwei[i]=spinner_gongwei_oracle.getList_result().get(i);
+
+                    spinner_gongxu_oracle.getImageromSdk(gongwei[i]);
+
+                    gongxu[i] = new String[spinner_gongxu_oracle.getList_result().size()];
+
+                    xiangdian[i] = new String[spinner_gongxu_oracle.getList_result().size()][];
+
+                    for (int j = 0;j<spinner_gongxu_oracle.getList_result().size();j++)
+                    {
+                        gongxu[i][j]=spinner_gongxu_oracle.getList_result().get(j);
+
+                        select_spinner_xiangdian.getImageromSdk(gongwei[i],gongxu[i][j]);
+
+                        xiangdian[i][j] = new String[select_spinner_xiangdian.getList_result().size()];
+
+                        for (int k = 0;k<select_spinner_xiangdian.getList_result().size();k++)
+                        {
+                            xiangdian[i][j][k] = select_spinner_xiangdian.getList_result().get(k);
+                        }
+                        select_spinner_xiangdian.getList_result().clear();
+
+                    }
+                    spinner_gongxu_oracle.getList_result().clear();
+
+                }
             }
         });
     }
