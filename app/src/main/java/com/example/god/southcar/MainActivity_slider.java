@@ -129,6 +129,7 @@ public class MainActivity_slider extends AppCompatActivity
         bindViews();
 
         txt_channel.performClick();   //模拟一次点击，既进去后选择第一项
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -211,7 +212,7 @@ public class MainActivity_slider extends AppCompatActivity
 
     //UI组件初始化与事件绑定
     private void bindViews() {
-        txt_topbar = (TextView) findViewById(R.id.txt_topbar);
+//        txt_topbar = (TextView) findViewById(R.id.txt_topbar);
         txt_channel = (TextView) findViewById(R.id.txt_channel);
         txt_message = (TextView) findViewById(R.id.txt_message);
         txt_better = (TextView) findViewById(R.id.txt_better);

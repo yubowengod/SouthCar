@@ -46,4 +46,7 @@
         <item name="android:progressDrawable">@drawable/shape_progressbar_mini</item>
     </style>
 
+    <!--标题栏baackground-->
+
+
 </resources>

@@ -8,9 +8,17 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -32,7 +40,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by GOD on 2016/9/21.
  */
-public class xianlu_main_activity extends Activity {
+public class xianlu_main_activity extends AppCompatActivity{
 
     private ExecutorService executorService;
     private TextView txt_xianlu_home;
@@ -86,6 +94,10 @@ public class xianlu_main_activity extends Activity {
                 finish();
             }
         });
+
+
+
+
     }
 
     private void listview_download() {
@@ -253,5 +265,6 @@ public class xianlu_main_activity extends Activity {
         dialog = builder.create();
         dialog.show();
     }
+
 }
 

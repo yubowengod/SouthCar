@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.example.god.southcar.R;
 /**
  * Created by GOD on 2016/9/21.
  */
-public class crm_main_activity extends Activity {
+public class crm_main_activity extends AppCompatActivity {
 
     private class SpinnerAdapter extends ArrayAdapter<String> {
         Context context;

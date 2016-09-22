@@ -18,13 +18,14 @@
     <application
         android:name="com.example.picturewall.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/chinazhongche"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity_slider"
-            android:label="test"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
@@ -51,9 +52,13 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name="com.example.main.xianlu_main_activity"></activity>
+        <activity android:name="com.example.main.xianlu_main_activity">
 
-        <activity android:name="com.example.main.crm_main_activity"></activity>
+        </activity>
+
+        <activity android:name="com.example.main.crm_main_activity" >
+
+        </activity>
 
         <activity
             android:name="com.arlen.photo.photopickup.view.PhotoPickupActivity"
