@@ -70,12 +70,15 @@ public class xianlu_main_activity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.xianlu_main);
 
         listview = (ListView) findViewById(R.id.xianlu_main_xianlu_listview);
 
         executorService = Executors.newFixedThreadPool(5);
+
         listview_download();
+
         txt_xianlu_home = (TextView) findViewById(R.id.txt_xianlu_home);
         txt_xianlu_back = (TextView) findViewById(R.id.txt_xianlu_back);
         txt_xianlu_home.setOnClickListener(new View.OnClickListener() {
@@ -94,10 +97,6 @@ public class xianlu_main_activity extends AppCompatActivity{
                 finish();
             }
         });
-
-
-
-
     }
 
     private void listview_download() {

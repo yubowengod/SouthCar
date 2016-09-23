@@ -246,7 +246,7 @@ public class MainActivity_slider extends AppCompatActivity
                 setSelected();
                 txt_message.setSelected(true);
                 if(fg2 == null){
-                    fg2 = new MyFragment1("信息列表");
+                    fg2 = new MyFragment1("通知信息");
                     fTransaction.add(R.id.ly_content,fg2);
                 }else{
                     fTransaction.show(fg2);

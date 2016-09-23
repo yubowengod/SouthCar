@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="startColor">#ffa30e10</color>
+    <color name="endColor">#ffc83632</color>
+
+
     <color name="bg_gray_alt">#eeeeee</color>
     <color name="T_26">#262626</color>
     <color name="T_F50">#FF5060</color>

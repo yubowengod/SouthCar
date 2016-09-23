@@ -321,7 +321,7 @@
                         android:id="@+id/sp_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="123"
+                        android:text="拍照项点"
                         android:textSize="18sp"
                         android:textColor="@color/text_yellow"
                         android:layout_gravity="center_horizontal" />
@@ -330,8 +330,8 @@
                         android:layout_height="10dp"
                         android:layout_gravity="center_horizontal" />
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:src="@mipmap/p140217"
                         android:layout_gravity="center_horizontal" />
                     <TextView

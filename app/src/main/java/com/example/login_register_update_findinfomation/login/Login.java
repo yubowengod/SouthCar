@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
+import com.example.login_register_update_findinfomation.findinformation.findpassword;
 import com.example.login_register_update_findinfomation.register.Register;
 
 import java.util.concurrent.ExecutorService;
@@ -63,7 +65,7 @@ public class Login extends Activity {
         find_password_repassword_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(Login.this,Register.class);
+                Intent intent =new Intent(Login.this,findpassword.class);
                 startActivity(intent);
             }
         });
@@ -94,20 +96,20 @@ public class Login extends Activity {
                         @Override
                         public void run() {
 
-//                            if (login_un_pw.getList_result().get(0).equals("1"))
-//                            {
+                            if (login_un_pw.getList_result().get(0).equals("1"))
+                            {
                             dialog.dismiss();
                             Intent intent =new Intent(Login.this, MainActivity_slider.class);
                             startActivity(intent);
                             finish();
-//                            }
-//                            else
-//                            {
-//                                dialog.dismiss();
-//                                Toast.makeText(Login.this, "错误！请再次输入", Toast.LENGTH_SHORT).show();
-//                                login_input_name.setText("");
-//                                login_input_password.setText("");
-//                            }
+                            }
+                            else
+                            {
+                                dialog.dismiss();
+                                Toast.makeText(Login.this, "错误！请再次输入", Toast.LENGTH_SHORT).show();
+                                login_input_name.setText("");
+                                login_input_password.setText("");
+                            }
 
 
                         }
