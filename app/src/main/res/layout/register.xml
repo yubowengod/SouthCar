@@ -10,8 +10,8 @@
 
         <ImageView
             android:id="@+id/joy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
             android:src="@mipmap/login_1_2"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -49,7 +49,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/login_input_name"
+                    android:id="@+id/register_input_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -86,6 +86,7 @@
                     android:inputType="textPassword"
                     android:layout_marginRight="5dp"
                     android:singleLine="true"
+                    android:maxLength="8"
                     />
 
                 <CheckBox
@@ -137,6 +138,70 @@
                     android:clickable="true" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffc8c8c8" />
+
+            <LinearLayout
+                android:id="@+id/register_question"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="保密问题："
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/register_input_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#fffbfbfb"
+                    android:layout_marginRight="5dp"
+                    android:singleLine="true"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffc8c8c8" />
+
+            <LinearLayout
+                android:id="@+id/register_answer"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="保密答案："
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/register_input_answer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#fffbfbfb"
+                    android:layout_marginRight="5dp"
+                    android:singleLine="true"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <RelativeLayout
@@ -145,31 +210,16 @@
             android:layout_alignParentBottom="true">
 
             <Button
-                android:id="@+id/login_btn"
+                android:id="@+id/register_btn"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:layout_marginLeft="13dp"
-                android:layout_marginRight="13dp"
-                android:layout_marginTop="13dp"
                 android:background="@drawable/login_layout_btn_bg"
                 android:text="@string/register"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
-                android:onClick="checkLogin"/>
-
-            <RelativeLayout
-                android:id="@+id/login_btn_findpassword_register"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_below="@+id/login_btn"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="13dp"
-                android:gravity="center_vertical" >
-
-            </RelativeLayout>
-
-
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 

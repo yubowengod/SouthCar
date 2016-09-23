@@ -24,13 +24,6 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity_slider"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-        <activity
             android:name="com.example.main.welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,13 +31,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.main.Login">
+
+        <activity
+            android:name="com.example.login_register_update_findinfomation.register.Register">
+
+        </activity>
+
+        <activity
+            android:name=".MainActivity_slider"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+
+        <activity android:name="com.example.login_register_update_findinfomation.login.Login">
 
         </activity>
 
 
 
-        <activity android:name="com.example.register.registerActivity"></activity>
+        <activity android:name="com.example.login_register_update_findinfomation.register.registerActivity"></activity>
 
 
         <activity android:name="com.arlen.photo.ui.MainActivity"

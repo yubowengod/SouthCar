@@ -1,27 +1,30 @@
-package com.example.login;
+package com.example.login_register_update_findinfomation.register;
 
 import android.util.Log;
+
 import com.example.upload.Data_up;
+
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by GOD on 2016/9/19.
+ * Created by GOD on 2016/9/22.
  */
-public class login_un_pw {
-    public static List<String> List_result ;
+public class Register_oracle {
+    public static String List_result ;
 
-    public static void getImageromSdk(String username,String password){
+    public static void getImageromSdk(String username,String password,String question,String answer){
         try{
-            String methodName = "username_password";
-            getImageFromAndroid(methodName,username,password);   //调用webservice
+            String methodName = "register_infomation";
+            getImageFromAndroid(methodName,username,password,question,answer);   //调用webservice
             Log.i("connectWebService", "start");
         }
         catch(Exception e){
@@ -29,7 +32,7 @@ public class login_un_pw {
         }
     }
 
-    public static String getImageFromAndroid(String methodName,String username,String password){
+    public static String getImageFromAndroid(String methodName,String username,String password,String question,String answer){
         Log.i("进入端口方法", "进入端口方法");
         // 创建HttpTransportSE传输对象
         HttpTransportSE ht = new HttpTransportSE(Data_up.getSERVICE_URL());
@@ -42,6 +45,9 @@ public class login_un_pw {
 
             soapObject.addProperty("username",username);
             soapObject.addProperty("password",password);
+            soapObject.addProperty("question",question);
+            soapObject.addProperty("answer",answer);
+            soapObject.addProperty("level","1");
 
             envelope.bodyOut = soapObject;
             // 设置与.NET提供的webservice保持较好的兼容性
@@ -53,9 +59,7 @@ public class login_un_pw {
             if (envelope.getResponse() != null) {
                 // 获取服务器响应返回的SOAP消息
                 SoapObject result = (SoapObject) envelope.bodyIn;
-                SoapObject detail = (SoapObject) result.getProperty(methodName + "Result");
-                // 解析服务器响应的SOAP消息
-                List_result=parseProvinceOrCity(detail);
+                List_result = result.getProperty(0).toString();
             }
         } catch (SoapFault e) {
             // TODO Auto-generated catch block
@@ -70,16 +74,9 @@ public class login_un_pw {
         return null;
     };
 
-    public static List<String> parseProvinceOrCity(SoapObject detail) {
-        ArrayList<String> result = new ArrayList<String>();
-        for (int i = 0; i < detail.getPropertyCount(); i++) {
-            // 解析出每个省份
-            result.add(detail.getProperty(i).toString().split(",")[0]);
-        }
-        return result;
-    }
 
-    public static List<String> getList_result(){
+
+    public static String getList_result(){
 
         return List_result;
     }

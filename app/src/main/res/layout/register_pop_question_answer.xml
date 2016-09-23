@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/login_layout_btn_bg">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/text_18_ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="@string/title_alert"
+                android:visibility="visible"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@mipmap/pop_btn_bg">
+
+            <LinearLayout
+                android:id="@+id/login_edit_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/joy"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:layout_centerInParent="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="保密问题："
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/register_pop_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:singleLine="true"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffc8c8c8" />
+
+                <LinearLayout
+                    android:id="@+id/ssss"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="保密答案："
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/register_pop_answer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:singleLine="true"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:id="@+id/message"-->
+                <!--style="@style/text_16_666666"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="left|center"-->
+                <!--android:lineSpacingMultiplier="1.5" -->
+                <!--android:paddingBottom="15dp"-->
+                <!--android:paddingLeft="20dp"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:paddingTop="15dp" />-->
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="#ffd0d0d0" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/login_layout_btn_bg"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/positiveButton"
+                android:layout_width="114dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="@string/ok"
+                android:background="@drawable/login_layout_editor_bg"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/negativeButton"
+                android:layout_width="114dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:background="@drawable/login_layout_editor_bg"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,4 +1,4 @@
-package com.example.main;
+package com.example.login_register_update_findinfomation.login;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -15,8 +15,7 @@ import android.widget.TextView;
 
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
-import com.example.login.login_un_pw;
-import com.example.register.registerActivity;
+import com.example.login_register_update_findinfomation.register.Register;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,10 +30,6 @@ public class Login extends Activity {
     private TextView login_input_password;
     private CheckBox login_switchBtn;
 
-
-//    ????????????????????
-
-    private TextView flag_login;
     private TextView find_password_repassword_login;
     private TextView register_login;
 //    ????????????????????
@@ -63,14 +58,20 @@ public class Login extends Activity {
         login_input_name = (TextView) findViewById(R.id.login_input_name);
         login_input_password = (TextView) findViewById(R.id.login_input_password);
         login_switchBtn = (CheckBox) findViewById(R.id.login_switchBtn);
-        flag_login = (TextView) findViewById(R.id.flag_login);
 
         find_password_repassword_login = (TextView)findViewById(R.id.find_password_repassword_login);
+        find_password_repassword_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Login.this,Register.class);
+                startActivity(intent);
+            }
+        });
         register_login = (TextView) findViewById(R.id.register_login);
         register_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(Login.this,registerActivity.class);
+                Intent intent =new Intent(Login.this,Register.class);
                 startActivity(intent);
             }
         });
