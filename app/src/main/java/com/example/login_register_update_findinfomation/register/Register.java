@@ -16,9 +16,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.Adapter.Register_SpinnerAdapter;
 import com.example.CustomDialog.CustomDialog;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
@@ -39,6 +41,7 @@ public class Register extends Activity {
     private TextView question;
     private TextView answer;
     private Button register_btn;
+    private Spinner register_spinner;
 
     private AlertDialog regiseter_popup;
 
@@ -66,9 +69,15 @@ public class Register extends Activity {
         username = (EditText) findViewById(R.id.register_input_name);
         password = (EditText) findViewById(R.id.register_input_password);
         repassword = (EditText) findViewById(R.id.register_input_repassword);
-        question = (EditText) findViewById(R.id.register_input_question);
+//        question = (EditText) findViewById(R.id.register_input_question);
         answer = (EditText) findViewById(R.id.register_input_answer);
         register_btn = (Button) findViewById(R.id.register_btn);
+
+        String [] register_qusetion_str = {"我的电话","我的名字","我的生日"};
+        register_spinner = (Spinner) findViewById(R.id.register_spinner);
+        Register_SpinnerAdapter register_spinnerAdapter=new Register_SpinnerAdapter(Register.this,android.R.layout.simple_spinner_item,register_qusetion_str);
+        register_spinner.setAdapter(register_spinnerAdapter);
+        register_spinner.setSelection(0,true);  //设置默认选中项，此处为默认选中第4个值
 
 
 
@@ -80,14 +89,13 @@ public class Register extends Activity {
 
                 if (username.getText().toString().length()!=0&&
                          password.getText().toString().length()!=0&&
-                         question.getText().toString().length()!=0&&
                          answer.getText().toString() .length()!=0
                         )
                 {
                     if (password.getText().toString().equals(repassword.getText().toString()))
                     {
                         CustomDialog.Builder builder = new CustomDialog.Builder(Register.this);
-                        builder.setquestion(question.getText().toString());
+                        builder.setquestion(register_spinner.getSelectedItem().toString());
                         builder.setanswer(answer.getText().toString());
                         builder.setTitle("确认密保问题");
                         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -102,7 +110,7 @@ public class Register extends Activity {
                                         Register_oracle.getImageromSdk(
                                                 username.getText().toString(),
                                                 password.getText().toString(),
-                                                question.getText().toString(),
+                                                register_spinner.getSelectedItem().toString(),
                                                 answer.getText().toString()
                                         );
                                         try
@@ -153,7 +161,6 @@ public class Register extends Activity {
                 }
                 else  if (username.getText().toString().length()==0&&
                         password.getText().toString().length()==0&&
-                        question.getText().toString().length()==0&&
                         answer.getText().toString() .length()==0
                         )  {
                     showDialog("请输入未填写信息！");

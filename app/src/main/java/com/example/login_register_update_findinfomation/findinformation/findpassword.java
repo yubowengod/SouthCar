@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.Adapter.Register_SpinnerAdapter;
 import com.example.god.southcar.R;
 
 import java.util.concurrent.ExecutorService;
@@ -26,10 +29,11 @@ public class findpassword extends Activity {
     private EditText findpassword_input_answer;
     private TextView findpassword_password;
     private Button findpassword_btn;
+    private Spinner findpassword_Spinner;
 
     private static String result;
 
-    private String flag = "0";//get_question 0 get_password 1
+    private String flag = "1";//get_question 0 get_password 1
 
     private ExecutorService executorService;
 
@@ -63,12 +67,16 @@ public class findpassword extends Activity {
         executorService = Executors.newFixedThreadPool(5);
 
         findpassword_input_name = (EditText) findViewById(R.id.findpassword_input_name);
-        findpassword_question = (TextView) findViewById(R.id.findpassword_question);
+//        findpassword_question = (TextView) findViewById(R.id.findpassword_question);
         findpassword_input_answer = (EditText) findViewById(R.id.findpassword_input_answer);
         findpassword_password = (TextView) findViewById(R.id.findpassword_password);
         findpassword_btn = (Button) findViewById(R.id.findpassword_btn);
 
-        findpassword_input_answer.getText().toString();
+        findpassword_Spinner=(Spinner)findViewById(R.id.findpassword_Spinner);
+        String [] findpassword_qusetion_str = {"我的电话","我的名字","我的生日"};
+        Register_SpinnerAdapter findpassword_spinnerAdapter=new Register_SpinnerAdapter(findpassword.this,android.R.layout.simple_spinner_item,findpassword_qusetion_str);
+        findpassword_Spinner.setAdapter(findpassword_spinnerAdapter);
+        findpassword_Spinner.setSelection(0,true);  //设置默认选中项，此处为默认选中第4个值
 
         findpassword_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,18 +94,26 @@ public class findpassword extends Activity {
                 findpassword_oracle.getImageromSdk(
                         get_password_by_question_flag,
                         findpassword_input_name.getText().toString(),
-                        findpassword_question.getText().toString(),
-                        findpassword_input_answer.getText().toString(),
-                        findpassword_password.getText().toString()
+                        findpassword_password.getText().toString(),
+                        findpassword_Spinner.getSelectedItem().toString(),
+                        findpassword_input_answer.getText().toString()
                 );
 
                 try {
                     mainHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        findpassword_question.setText(findpassword_oracle.getList_result());
-                        findpassword_btn.setText("获取密码");
-                        flag = "1";
+                        if (findpassword_oracle.getList_result().equals("anyType{}"))
+                        {
+                            Toast.makeText(findpassword.this, "您输入的信息有误，请重新输入！", Toast.LENGTH_SHORT).show();
+                            findpassword_password.setText("");
+                        }
+                        else
+                        {
+                            findpassword_password.setText(findpassword_oracle.getList_result());
+                            Toast.makeText(findpassword.this, "您已经成功找回密码，请牢记！", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 });
                 }

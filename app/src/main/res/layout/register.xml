@@ -158,15 +158,20 @@
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/register_input_question"
-                    android:layout_width="0dp"
+                <Spinner
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#fffbfbfb"
-                    android:layout_marginRight="5dp"
-                    android:singleLine="true"
-                    />
+                    android:id="@+id/register_spinner"></Spinner>
+
+                <!--<EditText-->
+                    <!--android:id="@+id/register_input_question"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="#fffbfbfb"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:singleLine="true"-->
+                    <!--/>-->
 
             </LinearLayout>
 
@@ -201,6 +206,7 @@
                     />
 
             </LinearLayout>
+
 
         </LinearLayout>
 

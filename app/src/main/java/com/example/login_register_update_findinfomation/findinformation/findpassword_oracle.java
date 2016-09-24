@@ -41,7 +41,7 @@ public class findpassword_oracle {
             // 实例化SoapObject对象
             SoapObject soapObject = new SoapObject(Data_up.getSERVICE_NAMESPACE(),methodName);
 
-            soapObject.addProperty("flag",flag);
+            soapObject.addProperty("flag","1");
             soapObject.addProperty("username",username);
             soapObject.addProperty("password",password);
             soapObject.addProperty("question",question);
