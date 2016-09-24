@@ -123,8 +123,4 @@ public class findpassword extends Activity {
             }
         });
     }
-
-    public void get_password(String flag_1){
-
-    }
 }

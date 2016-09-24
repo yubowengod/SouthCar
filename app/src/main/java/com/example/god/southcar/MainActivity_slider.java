@@ -4,8 +4,11 @@ package com.example.god.southcar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -28,6 +31,7 @@ import com.example.oracle.spinner_gongwei_oracle;
 import com.example.oracle.spinner_gongxu_oracle;
 import com.example.oracle.xianlu_oracle;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -167,8 +171,25 @@ public class MainActivity_slider extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_activity_slider, menu);
+
+        if (menu != null) {
+            try {
+                Class clazz = menu.getClass();
+                if (clazz.getSimpleName().equals("MenuBuilder")) {
+                    Method m = clazz.getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+
+                    //MenuBuilder实现Menu接口，创建菜单时，传进来的menu其实就是MenuBuilder对象(java的多态特征)
+                    m.invoke(menu, true);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -178,7 +199,7 @@ public class MainActivity_slider extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings1) {
             return true;
         }
 
