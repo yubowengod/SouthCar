@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:background="@mipmap/ic_launcher"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="爷，今天心情好！"
+        android:textSize="18sp"
+        android:textColor="@color/text_yellow"/>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:layout_below="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:text="今天又是雾霾今天又是雾霾今天又是雾霾今天又是雾霾今天又是雾霾今天又是雾霾！"
+        android:textSize="16sp"
+        android:maxLines="2"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_below="@+id/tv_content"
+        android:layout_alignRight="@+id/tv_content"
+        android:layout_alignEnd="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="****-**-**"
+        android:textSize="16sp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>
