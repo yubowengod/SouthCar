@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -13,12 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.arlen.photo.ui.MainActivity;
+import com.bumptech.glide.Glide;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
+import com.example.upload.Data_up;
 
 /**
  * Created by GOD on 2016/9/21.
@@ -85,7 +89,9 @@ public class crm_main_activity extends AppCompatActivity {
     ArrayAdapter<String> gongweiAdapter = null;  //省级适配器
     ArrayAdapter<String> cityAdapter = null;    //地级适配器
     ArrayAdapter<String> countyAdapter = null;    //县级适配器
-    static int provincePosition = 3;
+    static int provincePosition = 0;
+    static int cityPosition = 0;
+    static int countryPosition = 0;
 
     private TextView txt_crm_home;
     private TextView txt_crm_reset_xianlu;
@@ -96,6 +102,8 @@ public class crm_main_activity extends AppCompatActivity {
     private TextView text_chehao;
     private TextView text_zaizhuangxianlu;
 //    private TextView text_zaizhuangxianlu_num;
+
+    private ImageView crm_main_activity_imageview;
 
     String str;
     String chetileibie;
@@ -131,6 +139,8 @@ public class crm_main_activity extends AppCompatActivity {
         text_chexing = (TextView) findViewById(R.id.text_chexing);
         text_zaizhuangxianlu = (TextView) findViewById(R.id.crm_main_zaizhuangxianlu);
 //        text_zaizhuangxianlu_num = (TextView) findViewById(R.id.crm_main_zaizhuangxianlu_num);
+        crm_main_activity_imageview = (ImageView) findViewById(R.id.crm_main_activity_imageview);
+
         text_chehao.setText(xianlu_up_chehao);
         text_chexing.setText(xianlu_up_chexing);
         text_zaizhuangxianlu.setText(xianlu_up_zaizhuangxianlu);
@@ -245,6 +255,7 @@ public class crm_main_activity extends AppCompatActivity {
             {
                 SpinnerAdapter countyAdapter=new SpinnerAdapter(crm_main_activity.this,android.R.layout.simple_spinner_item,
                         mainActivity_login.xiangdian[provincePosition][position]);
+                cityPosition = position;
                 countySpinner.setAdapter(countyAdapter);
             }
 
@@ -258,7 +269,10 @@ public class crm_main_activity extends AppCompatActivity {
         countySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                sp_text.setText(countySpinner.getSelectedItem().toString());
+//                sp_text.setText(countySpinner.getSelectedItem().toString());
+                sp_text.setText(MainActivity_slider.jianceshuoming[provincePosition][cityPosition][position]);
+                String ww = Data_up.getSERVICE_URL_IP_PORT_local_file()+position+".png";
+                Glide.with(crm_main_activity.this).load("http://192.168.155.1:8011/local_file/1.png").fitCenter().skipMemoryCache(true).into(crm_main_activity_imageview);
             }
 
             @Override

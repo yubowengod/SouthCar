@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ViewTreeObserver;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -27,7 +28,7 @@ import com.example.god.southcar.R;
  *
  * @author guolin
  */
-public class MainActivity_uploadpic extends Activity {
+public class MainActivity_uploadpic extends AppCompatActivity {
 
     private ExecutorService executorService;
     /**

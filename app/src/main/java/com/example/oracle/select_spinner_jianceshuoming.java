@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by GOD on 2016/9/21.
+ * Created by GOD on 2016/9/25.
  */
-public class select_spinner_xiangdian {
+public class select_spinner_jianceshuoming {
     public static List<String> List_result ;
 
     public static void getImageromSdk(String GW,String GX){
@@ -72,7 +72,7 @@ public class select_spinner_xiangdian {
 
     public static List<String> parseProvinceOrCity(SoapObject detail) {
         ArrayList<String> result = new ArrayList<String>();
-        for (int i = 2; i < detail.getPropertyCount(); i=i+4) {
+        for (int i = 3; i < detail.getPropertyCount(); i=i+4) {
             // 解析
             result.add(detail.getProperty(i).toString().split(",")[0]);
         }
@@ -84,4 +84,3 @@ public class select_spinner_xiangdian {
     }
 
 }
-
