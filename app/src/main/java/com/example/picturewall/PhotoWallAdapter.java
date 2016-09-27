@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
 
 import java.io.BufferedInputStream;
@@ -115,6 +116,8 @@ public class PhotoWallAdapter extends ArrayAdapter<String> {
         imageView.setTag(url);
         imageView.setImageResource(R.mipmap.ic_launcher);
         loadBitmaps(imageView, url);
+
+
         return view;
     }
 

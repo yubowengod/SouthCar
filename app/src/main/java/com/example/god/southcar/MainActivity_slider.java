@@ -24,6 +24,7 @@ import com.example.main.MyFragment2;
 import com.example.main.MyFragment3;
 import com.example.main.NewContentFragment;
 import com.example.oracle.select_spinner_jianceshuoming;
+import com.example.oracle.select_spinner_jiancexiangdian_picinfo;
 import com.example.oracle.select_spinner_xiangdian;
 import com.example.oracle.spinner_gongwei_oracle;
 import com.example.oracle.spinner_gongxu_oracle;
@@ -70,6 +71,7 @@ public class MainActivity_slider extends AppCompatActivity
     public static String [] [] gongxu = null;
     public static String [] [] [] xiangdian = null;
     public static String [] [] [] jianceshuoming = null;
+    public static String [] [] [] picinfo = null;
 
     private void ini_spinner(){
 
@@ -89,6 +91,8 @@ public class MainActivity_slider extends AppCompatActivity
 
                 jianceshuoming = new String[spinner_gongwei_oracle.getList_result().size()][][];
 
+                picinfo = new String[spinner_gongwei_oracle.getList_result().size()][][];
+
                 for(int i=0;i<spinner_gongwei_oracle.getList_result().size();i++)
                 {
                     gongwei[i]=spinner_gongwei_oracle.getList_result().get(i);
@@ -101,6 +105,8 @@ public class MainActivity_slider extends AppCompatActivity
 
                     jianceshuoming[i] = new String[spinner_gongxu_oracle.getList_result().size()][];
 
+                    picinfo[i] = new String[spinner_gongxu_oracle.getList_result().size()][];
+
                     for (int j = 0;j<spinner_gongxu_oracle.getList_result().size();j++)
                     {
                         gongxu[i][j]=spinner_gongxu_oracle.getList_result().get(j);
@@ -109,19 +115,27 @@ public class MainActivity_slider extends AppCompatActivity
 
                         select_spinner_jianceshuoming.getImageromSdk(gongwei[i],gongxu[i][j]);
 
+                        select_spinner_jiancexiangdian_picinfo.getImageromSdk(gongwei[i],gongxu[i][j]);
+
                         xiangdian[i][j] = new String[select_spinner_xiangdian.getList_result().size()];
 
                         jianceshuoming[i][j] = new String[select_spinner_jianceshuoming.getList_result().size()];
+
+                        picinfo[i][j] = new String[select_spinner_jiancexiangdian_picinfo.getList_result().size()];
 
                         for (int k = 0;k<select_spinner_xiangdian.getList_result().size();k++)
                         {
                             xiangdian[i][j][k] = select_spinner_xiangdian.getList_result().get(k);
 
                             jianceshuoming[i][j][k] = select_spinner_jianceshuoming.getList_result().get(k);
+
+                            picinfo[i][j][k] = select_spinner_jiancexiangdian_picinfo.getList_result().get(k);
                         }
                         select_spinner_xiangdian.getList_result().clear();
 
                         select_spinner_jianceshuoming.getList_result().clear();
+
+                        select_spinner_jiancexiangdian_picinfo.getList_result().clear();
                     }
                     spinner_gongxu_oracle.getList_result().clear();
                 }

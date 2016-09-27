@@ -5,24 +5,37 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.arlen.photo.ui.MainActivity;
 import com.bumptech.glide.Glide;
+import com.example.MyFragment1.MyFragment1_ItemEntity;
+import com.example.crm_main.crm_main_grid_ItemEntity;
+import com.example.crm_main.crm_main_grid_adapter;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
+import com.example.imagedemo.NoScrollGridAdapter;
+import com.example.picturewall.PhotoWallAdapter;
 import com.example.upload.Data_up;
+
+import java.util.ArrayList;
 
 /**
  * Created by GOD on 2016/9/21.
@@ -80,6 +93,18 @@ public class crm_main_activity extends AppCompatActivity {
     }
 
 
+    private Handler mainHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            if (msg.what == 2114) {
+                //只要在主线程就可以处理ui
+                ((ImageView) crm_main_activity.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
+            }
+        }
+    };
+
     private TextView sp_text;
 
     private Spinner provinceSpinner = null;  //省级（省、直辖市）
@@ -93,6 +118,7 @@ public class crm_main_activity extends AppCompatActivity {
     static int cityPosition = 0;
     static int countryPosition = 0;
 
+    private String province_file;
     private TextView txt_crm_home;
     private TextView txt_crm_reset_xianlu;
     private TextView txt_crm_reset_yemian;
@@ -118,7 +144,23 @@ public class crm_main_activity extends AppCompatActivity {
         txt_crm_next.setSelected(false);
     }
 
+    /**
+     * 用于展示照片墙的GridView
+     */
+    private GridView mPhotoWall;
+    private ListView mPhotolist;
+
+    /**
+     * GridView的适配器
+     */
+    private PhotoWallAdapter mAdapter;
+
+    private int mImageThumbSize;
+    private int mImageThumbSpacing;
+
     MainActivity_slider mainActivity_login;
+
+    private ArrayList<crm_main_grid_ItemEntity> itemEntities = new ArrayList<crm_main_grid_ItemEntity>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,7 +181,7 @@ public class crm_main_activity extends AppCompatActivity {
         text_chexing = (TextView) findViewById(R.id.text_chexing);
         text_zaizhuangxianlu = (TextView) findViewById(R.id.crm_main_zaizhuangxianlu);
 //        text_zaizhuangxianlu_num = (TextView) findViewById(R.id.crm_main_zaizhuangxianlu_num);
-        crm_main_activity_imageview = (ImageView) findViewById(R.id.crm_main_activity_imageview);
+//        crm_main_activity_imageview = (ImageView) findViewById(R.id.crm_main_activity_imageview);
 
         text_chehao.setText(xianlu_up_chehao);
         text_chexing.setText(xianlu_up_chexing);
@@ -147,6 +189,14 @@ public class crm_main_activity extends AppCompatActivity {
 //        text_zaizhuangxianlu_num.setText(xianlu_up_zaizhuangxianlu_num);
 
 //        ini_spinner();
+
+        mImageThumbSize = getResources().getDimensionPixelSize(
+                R.dimen.image_thumbnail_size);
+        mImageThumbSpacing = getResources().getDimensionPixelSize(
+                R.dimen.image_thumbnail_spacing);
+        mPhotoWall = (GridView) findViewById(R.id.crm_main_gridview);
+
+//        mPhotolist = (ListView) findViewById(R.id.crm_main_listview);
         setSpinner();
 
         sp_text = (TextView) findViewById(R.id.sp_text);
@@ -222,8 +272,6 @@ public class crm_main_activity extends AppCompatActivity {
         countySpinner.setAdapter(countyAdapter);
         countySpinner.setSelection(0, true);
 
-//        bingo
-
         provinceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             // 表示选项被改变的时候触发此方法，主要实现办法：动态改变地级适配器的绑定值
@@ -238,6 +286,7 @@ public class crm_main_activity extends AppCompatActivity {
                 // 设置二级下拉列表的选项内容适配器
                 citySpinner.setAdapter(cityAdapter);
                 provincePosition = position;    //记录当前省级序号，留给下面修改县级适配器时用
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0)
@@ -269,10 +318,25 @@ public class crm_main_activity extends AppCompatActivity {
         countySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                sp_text.setText(countySpinner.getSelectedItem().toString());
+
                 sp_text.setText(MainActivity_slider.jianceshuoming[provincePosition][cityPosition][position]);
-                String ww = Data_up.getSERVICE_URL_IP_PORT_local_file()+position+".png";
-                Glide.with(crm_main_activity.this).load("http://192.168.155.1:8011/local_file/1.png").fitCenter().skipMemoryCache(true).into(crm_main_activity_imageview);
+
+                final ArrayList<String> imageUrls = new ArrayList<String>();
+
+                String [] split_result = MainActivity_slider.picinfo[provincePosition][cityPosition][position].split(";");
+
+                for (int i = 0; i<split_result.length;i++){
+                    split_result[i] = Data_up.getSERVICE_URL_IP_PORT_local_file()+"example_picture/"+mainActivity_login.gongwei[provincePosition]+"/"+split_result[i]+".jpg";
+
+                    imageUrls.add(split_result[i]);
+                }
+
+                mainHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                       mPhotoWall.setAdapter(new crm_main_grid_adapter(crm_main_activity.this,imageUrls));
+                    }
+                });
             }
 
             @Override
@@ -281,61 +345,4 @@ public class crm_main_activity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
-    //    Integer.parseInt(str);
-    private void showDialogtc(){
-        AlertDialog dialog;
-        AlertDialog.Builder builder = new AlertDialog.Builder(crm_main_activity.this);
-        builder.setTitle("消息").setIcon(android.R.drawable.stat_notify_error);
-        builder.setMessage("tc，请改正");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
-
-            }
-        });
-        dialog = builder.create();
-        dialog.show();
-    }
-    private void showDialogmp(){
-        AlertDialog dialog;
-        AlertDialog.Builder builder = new AlertDialog.Builder(crm_main_activity.this);
-        builder.setTitle("消息").setIcon(android.R.drawable.stat_notify_error);
-        builder.setMessage("mp，请改正");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
-
-            }
-        });
-        dialog = builder.create();
-        dialog.show();
-    }
-    private void showDialogm(){
-        AlertDialog dialog;
-        AlertDialog.Builder builder = new AlertDialog.Builder(crm_main_activity.this);
-        builder.setTitle("消息").setIcon(android.R.drawable.stat_notify_error);
-        builder.setMessage("m，请改正");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
-
-            }
-        });
-        dialog = builder.create();
-        dialog.show();
-    }
-
 }
