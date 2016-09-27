@@ -12,7 +12,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.god.southcar.R;
-import com.example.picturewall.MainActivity_uploadpic;
+import com.example.updated_pic_info.MainActivity_uploadpic;
 import com.example.picturewall.PhotoWallAdapter;
 
 /**

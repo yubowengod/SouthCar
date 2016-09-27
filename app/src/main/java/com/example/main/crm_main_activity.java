@@ -24,6 +24,7 @@ import com.example.crm_main.crm_main_grid_ItemEntity;
 import com.example.crm_main.crm_main_grid_adapter;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
+import com.example.imagedemo.ImagePagerActivity;
 import com.example.picturewall.PhotoWallAdapter;
 import com.example.upload.Data_up;
 import com.example.xianlu_main.xianlu_main_activity;
@@ -328,6 +329,16 @@ public class crm_main_activity extends AppCompatActivity {
                     @Override
                     public void run() {
                        mPhotoWall.setAdapter(new crm_main_grid_adapter(crm_main_activity.this,imageUrls));
+
+                        // 点击回帖九宫格，查看大图
+                        mPhotoWall.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                // TODO Auto-generated method stub
+                                imageBrower(position, imageUrls);
+                            }
+                        });
                     }
                 });
             }
@@ -337,5 +348,19 @@ public class crm_main_activity extends AppCompatActivity {
 
             }
         });
+    }
+
+    /**
+     * 打开图片查看器
+     *
+     * @param position
+     * @param urls2
+     */
+    protected void imageBrower(int position, ArrayList<String> urls2) {
+        Intent intent = new Intent(crm_main_activity.this, ImagePagerActivity.class);
+        // 图片url,为了演示这里使用常量，一般从数据库中或网络中获取
+        intent.putExtra(ImagePagerActivity.EXTRA_IMAGE_URLS, urls2);
+        intent.putExtra(ImagePagerActivity.EXTRA_IMAGE_INDEX, position);
+        startActivity(intent);
     }
 }

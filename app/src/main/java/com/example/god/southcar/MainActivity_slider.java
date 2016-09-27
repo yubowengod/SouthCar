@@ -11,11 +11,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.main.Data;
 import com.example.main.MyFragment;
@@ -74,6 +76,9 @@ public class MainActivity_slider extends AppCompatActivity
     public static String [] [] [] picinfo = null;
 
     public static int xianlu_num;
+
+    private long mExitTime;
+
     private void ini_spinner(){
 
         executorService.submit(new Runnable() {
@@ -358,5 +363,20 @@ public class MainActivity_slider extends AppCompatActivity
         if(fg4 != null)fragmentTransaction.hide(fg4);
         if(fg5 != null)fragmentTransaction.hide(fg5);
 
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                Object mHelperUtils;
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                mExitTime = System.currentTimeMillis();
+
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

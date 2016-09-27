@@ -65,8 +65,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView txt_upload_back;
 
     private void setSelected(){
-        txt_upload_4.setSelected(false);
-        txt_upload_3.setSelected(false);
         txt_upload_reset_yemian.setSelected(false);
         txt_upload_back.setSelected(false);
     }
@@ -78,8 +76,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         mPhotoPresenter = new PhotoPresenter(this,"feedback");
 
-        txt_upload_4 = (TextView) findViewById(R.id.txt_upload_4);
-        txt_upload_3 = (TextView) findViewById(R.id.txt_upload_3);
         txt_upload_reset_yemian = (TextView) findViewById(R.id.txt_upload_reset_yemian);
         txt_upload_back = (TextView) findViewById(R.id.txt_upload_back);
 

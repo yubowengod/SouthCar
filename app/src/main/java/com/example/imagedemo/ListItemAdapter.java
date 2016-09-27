@@ -1,6 +1,8 @@
 package com.example.imagedemo;
 
 import java.util.ArrayList;
+
+import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -65,14 +67,16 @@ public class ListItemAdapter extends BaseAdapter {
 		holder.tv_title.setText(itemEntity.getTitle());
 		holder.tv_content.setText(itemEntity.getContent());
 		// 使用ImageLoader加载网络图片
-		DisplayImageOptions options = new DisplayImageOptions.Builder()//
-				.showImageOnLoading(R.mipmap.ic_launcher) // 加载中显示的默认图片
-				.showImageOnFail(R.mipmap.ic_launcher) // 设置加载失败的默认图片
-				.cacheInMemory(true) // 内存缓存
-				.cacheOnDisk(true) // sdcard缓存
-				.bitmapConfig(Config.RGB_565)// 设置最低配置
-				.build();//
-		ImageLoader.getInstance().displayImage(itemEntity.getAvatar(), holder.iv_avatar, options);
+
+		Glide.with(mContext).load(itemEntity.getAvatar()).fitCenter().skipMemoryCache(true).into(holder.iv_avatar);
+//		DisplayImageOptions options = new DisplayImageOptions.Builder()//
+//				.showImageOnLoading(R.mipmap.ic_launcher) // 加载中显示的默认图片
+//				.showImageOnFail(R.mipmap.ic_launcher) // 设置加载失败的默认图片
+//				.cacheInMemory(true) // 内存缓存
+//				.cacheOnDisk(true) // sdcard缓存
+//				.bitmapConfig(Config.RGB_565)// 设置最低配置
+//				.build();//
+//		ImageLoader.getInstance().displayImage(itemEntity.getAvatar(), holder.iv_avatar, options);
 		final ArrayList<String> imageUrls = itemEntity.getImageUrls();
 		if (imageUrls == null || imageUrls.size() == 0) { // 没有图片资源就隐藏GridView
 			holder.gridview.setVisibility(View.GONE);

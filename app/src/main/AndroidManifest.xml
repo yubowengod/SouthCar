@@ -86,7 +86,7 @@
 
 
 
-        <activity android:name="com.example.picturewall.MainActivity_uploadpic">
+        <activity android:name="com.example.updated_pic_info.MainActivity_uploadpic">
 
         </activity>
         <activity android:name="com.example.imagedemo.ImagePagerActivity" >

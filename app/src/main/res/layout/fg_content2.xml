@@ -26,10 +26,44 @@
             android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
-    <Button
+
+
+    <LinearLayout
+        android:id="@+id/login_edit_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_uploadpic_info"/>
+        android:layout_below="@+id/joy"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_layout_editor_bg"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_uploadpic_info"
+            android:text="查看上传历史"
+            android:textSize="18sp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffc8c8c8" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffc8c8c8" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 
 
 

@@ -2,7 +2,9 @@ package com.example.imagedemo;
 
 import java.util.ArrayList;
 
+import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
+import com.example.upload.Data_up;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -47,12 +49,13 @@ public class NoScrollGridAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = View.inflate(ctx, R.layout.item_gridview, null);
 		ImageView imageView = (ImageView) view.findViewById(R.id.iv_image);
-		DisplayImageOptions options = new DisplayImageOptions.Builder()//
-				.cacheInMemory(true)//
-				.cacheOnDisk(true)//
-				.bitmapConfig(Config.RGB_565)//
-				.build();
-		ImageLoader.getInstance().displayImage(imageUrls.get(position), imageView, options);
+		Glide.with(ctx).load(imageUrls.get(position)).fitCenter().skipMemoryCache(true).into(imageView);
+//		DisplayImageOptions options = new DisplayImageOptions.Builder()//
+//				.cacheInMemory(true)//
+//				.cacheOnDisk(true)//
+//				.bitmapConfig(Config.RGB_565)//
+//				.build();
+//		ImageLoader.getInstance().displayImage(imageUrls.get(position), imageView, options);
 		return view;
 	}
 
