@@ -73,6 +73,7 @@ public class MainActivity_slider extends AppCompatActivity
     public static String [] [] [] jianceshuoming = null;
     public static String [] [] [] picinfo = null;
 
+    public static int xianlu_num;
     private void ini_spinner(){
 
         executorService.submit(new Runnable() {
@@ -80,6 +81,8 @@ public class MainActivity_slider extends AppCompatActivity
             public void run() {
 
                 xianlu_oracle.getImageromSdk();
+
+                xianlu_num = xianlu_oracle.getList_result().size()/4;
 
                 spinner_gongwei_oracle.getImageromSdk();
 

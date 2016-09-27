@@ -37,4 +37,10 @@ public class Data_up {
         return SERVICE_URL_IP_PORT_local_file;
     }
 
+    private static String SERVICE_URL_IP_PORT_local_file_xianlu_pic = "http://192.168.155.1:8011/local_file/xianlu_pic/";
+
+    public static String getSERVICE_URL_IP_PORT_local_file_xianlu_pic() {
+        return SERVICE_URL_IP_PORT_local_file_xianlu_pic;
+    }
+
 }

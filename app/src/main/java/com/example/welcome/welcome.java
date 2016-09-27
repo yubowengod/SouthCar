@@ -1,4 +1,4 @@
-package com.example.main;
+package com.example.welcome;
 
 import android.app.Activity;
 import android.content.Intent;

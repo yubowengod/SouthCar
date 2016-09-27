@@ -29,7 +29,7 @@ public class xianlu_oracle {
 
         try{
             String methodName = "selectAllZAIZHUANGXIANLU";
-            getImageFromAndroid(methodName,"111");   //调用webservice
+            getImageFromAndroid(methodName);   //调用webservice
             Log.i("connectWebService", "start");
         }
         catch(Exception e){
@@ -37,8 +37,9 @@ public class xianlu_oracle {
         }
     }
 
-    public static String getImageFromAndroid(String methodName,String downloadBuffer){
-        Log.i("进入端口方法", "进入端口方法");
+    public static String getImageFromAndroid(String methodName){
+        Log.i("进入端口方法", methodName);
+
         // 创建HttpTransportSE传输对象
         HttpTransportSE ht = new HttpTransportSE(Data_up.getSERVICE_URL());
         try {
@@ -47,8 +48,6 @@ public class xianlu_oracle {
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             // 实例化SoapObject对象
             SoapObject soapObject = new SoapObject(Data_up.getSERVICE_NAMESPACE(),methodName);
-
-//            soapObject.addProperty("Imagefilename","111");
 
             envelope.bodyOut = soapObject;
             // 设置与.NET提供的webservice保持较好的兼容性
@@ -62,7 +61,8 @@ public class xianlu_oracle {
                 SoapObject result = (SoapObject) envelope.bodyIn;
                 SoapObject detail = (SoapObject) result.getProperty(methodName + "Result");
                 // 解析服务器响应的SOAP消息
-                List_result=parseProvinceOrCity(detail);
+                    List_result=parseProvinceOrCity(detail);
+
             }
         } catch (SoapFault e) {
             // TODO Auto-generated catch block
@@ -79,7 +79,7 @@ public class xianlu_oracle {
 
     public static List<String> parseProvinceOrCity(SoapObject detail) {
         ArrayList<String> result = new ArrayList<String>();
-        for (int i = 2; i < detail.getPropertyCount(); i=i+5) {
+        for (int i = 0; i < detail.getPropertyCount(); i++) {
             // 解析出每个省份
             result.add(detail.getProperty(i).toString().split(",")[0]);
         }
@@ -87,7 +87,6 @@ public class xianlu_oracle {
     }
 
     public static List<String> getList_result(){
-
         return List_result;
     }
 

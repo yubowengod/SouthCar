@@ -1,12 +1,8 @@
 package com.example.main;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,7 +11,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -25,15 +20,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.arlen.photo.ui.MainActivity;
-import com.bumptech.glide.Glide;
-import com.example.MyFragment1.MyFragment1_ItemEntity;
 import com.example.crm_main.crm_main_grid_ItemEntity;
 import com.example.crm_main.crm_main_grid_adapter;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
-import com.example.imagedemo.NoScrollGridAdapter;
 import com.example.picturewall.PhotoWallAdapter;
 import com.example.upload.Data_up;
+import com.example.xianlu_main.xianlu_main_activity;
 
 import java.util.ArrayList;
 

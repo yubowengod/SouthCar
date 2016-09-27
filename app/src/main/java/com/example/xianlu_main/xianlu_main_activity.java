@@ -1,6 +1,5 @@
-package com.example.main;
+package com.example.xianlu_main;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,17 +7,10 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -27,9 +19,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
 import com.example.imagedemo.ItemEntity;
 import com.example.imagedemo.ListItemAdapter;
+import com.example.main.crm_main_activity;
 import com.example.oracle.xianlu_oracle;
 import com.example.upload.Data_up;
 
@@ -64,7 +58,7 @@ public class xianlu_main_activity extends AppCompatActivity{
     private int MIN_MARK = 1;
     private int MAX_MARK = 6;
     private ListView listview;
-    static ArrayList<ItemEntity> itemEntities;
+    static ArrayList<xianlu_main_ItemEntity> itemEntities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,34 +104,26 @@ public class xianlu_main_activity extends AppCompatActivity{
                         @Override
                         public void run() {
 
-                            itemEntities = new ArrayList<ItemEntity>();
+                            itemEntities = new ArrayList<xianlu_main_ItemEntity>();
 
-                            final String [] xianlu_name = new String[xianlu_oracle.getList_result().size()];
+                            final xianlu_main_ItemEntity [] entity_oracle = new xianlu_main_ItemEntity[MainActivity_slider.xianlu_num];
 
-                            final String [] xianlu_num = new String[xianlu_oracle.getList_result().size()];
-
-                            final ItemEntity [] entity_oracle = new ItemEntity[xianlu_oracle.getList_result().size()];
-
-                            for (int i=0;i<xianlu_name.length;i++)
+                            int j=0;
+                            for (int i=0;i<xianlu_oracle.getList_result().size();i=i+4)
                             {
-                                xianlu_name[i] = xianlu_oracle.getList_result().get(i);
+                                entity_oracle[j] = new xianlu_main_ItemEntity(
+                                        xianlu_oracle.getList_result().get(i+3),
+                                        xianlu_oracle.getList_result().get(i+1),
+                                        xianlu_oracle.getList_result().get(i+2),
+                                        xianlu_oracle.getList_result().get(i)
+                                );
 
-                                xianlu_num[i] = xianlu_oracle.getList_result().get(i);
+                                itemEntities.add(entity_oracle[j]);
 
-                                entity_oracle[i] = new ItemEntity(Data_up.getSERVICE_URL_IP_PORT_webnnn()+xianlu_name[i]+".jpg","名称："+xianlu_name[i],"数量："+xianlu_num[i],null);
-
-                                itemEntities.add(entity_oracle[i]);
+                                j++;
                             }
-                            listview.setAdapter(new ListItemAdapter(xianlu_main_activity.this, itemEntities));
-                            // 1.无图片
-//                ItemEntity entity1 = new ItemEntity(//
-//                        "http://img.my.csdn.net/uploads/201410/19/1413698871_3655.jpg", "张三", "今天天气不错...", null);
-//                itemEntities.add(entity1);
-//
-//                ItemEntity entity2 = new ItemEntity(//
-//                        "http://img.my.csdn.net/uploads/201410/19/1413698865_3560.jpg", "李四", "今天雾霾呢...", null);
-//                itemEntities.add(entity2);
-//
+
+                            listview.setAdapter(new xianlu_main_ListItemAdapter(xianlu_main_activity.this, itemEntities));
 
 //                         listview 点击事件
                             listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -202,7 +188,7 @@ public class xianlu_main_activity extends AppCompatActivity{
                                         }
                                     });
 
-                                    xianluname_str = xianlu_name[position];
+                                    xianluname_str = entity_oracle[position].getTitle();
                                     ad.setTitle("待检查线路："+xianluname_str);
                                     selfdialog = ad.create();
                                     selfdialog.setButton("确定", new DialogInterface.OnClickListener() {

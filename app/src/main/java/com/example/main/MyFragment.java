@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.god.southcar.R;
 import com.example.picturewall.PhotoWallAdapter;
+import com.example.xianlu_main.xianlu_main_activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;

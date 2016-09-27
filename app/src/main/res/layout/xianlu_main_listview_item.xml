@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-     >
+    android:layout_height="match_parent">
 
-    <!--<ImageView-->
-        <!--android:layout_gravity="center_vertical|center_horizontal"-->
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:background="@mipmap/ic_launcher"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop" />
 
-        <!--android:id="@+id/xianlu_image"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"/>-->
     <TextView
-    android:layout_marginTop="10sp"
-    android:layout_marginBottom="10sp"
-    android:layout_gravity="center_horizontal"
-    android:id="@+id/xianlu_name"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="20sp"/>
-    <TextView
-        android:layout_marginTop="10sp"
-        android:layout_marginBottom="10sp"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/xianlu_num"
+        android:id="@+id/tv_name"
+        android:layout_toRightOf="@id/iv_avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"/>
+        android:layout_marginLeft="15dp"
+        android:text="爷，今天心情好！"
+        android:textSize="18sp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:layout_below="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="今天又是雾霾！"
+        android:textSize="16sp"
+        android:maxLines="2"/>
+
+    <TextView
+        android:id="@+id/tv_chejian"
+        android:layout_below="@+id/tv_num"
+        android:layout_alignRight="@+id/tv_num"
+        android:layout_alignEnd="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你妹"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"/>
+
+</RelativeLayout>
