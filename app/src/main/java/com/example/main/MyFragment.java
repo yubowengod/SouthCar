@@ -13,6 +13,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.example.god.southcar.R;
+import com.example.identity_pic.identity_pic_main_java;
 import com.example.picturewall.PhotoWallAdapter;
 import com.example.xianlu_main.xianlu_main_activity;
 
@@ -111,9 +112,15 @@ public class MyFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent intent = new Intent(getActivity(),xianlu_main_activity.class);
-                getActivity().startActivity(intent);
+                if(position == 0){
+                    Intent intent = new Intent(getActivity(),xianlu_main_activity.class);
+                    getActivity().startActivity(intent);
+                }
 
+                if(position == 1){
+                    Intent intent = new Intent(getActivity(),identity_pic_main_java.class);
+                    getActivity().startActivity(intent);
+                }
 //                getActivity().finish();
 //                Toast.makeText(getActivity(),name[position],Toast.LENGTH_LONG).show();
             }

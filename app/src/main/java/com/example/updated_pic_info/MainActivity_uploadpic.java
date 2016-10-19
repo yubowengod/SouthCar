@@ -128,10 +128,6 @@ public class MainActivity_uploadpic extends AppCompatActivity {
                 catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-
-
-
-
             }
         });
     }

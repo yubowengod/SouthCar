@@ -81,6 +81,10 @@ public class ImageDetailFragment extends  Fragment {
 
         Glide.with(this).load(mImageUrl).fitCenter().skipMemoryCache( true ).into(mImageView);
 
+        /*
+        glide 加载错误！！！？？？进度条！！！？？？
+         */
+
 //        ImageLoader.getInstance().displayImage(mImageUrl, mImageView, new SimpleImageLoadingListener() {
 //            @Override
 //            public void onLoadingStarted(String imageUri, View view) {

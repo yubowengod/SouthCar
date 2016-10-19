@@ -60,6 +60,9 @@
         </activity>
 
 
+        <activity android:name="com.example.identity_pic.identity_pic_main_java">
+
+        </activity>
 
         <activity android:name="com.arlen.photo.ui.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"

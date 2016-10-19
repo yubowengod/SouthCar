@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -156,10 +157,20 @@ public class crm_main_activity extends AppCompatActivity {
 
     private ArrayList<crm_main_grid_ItemEntity> itemEntities = new ArrayList<crm_main_grid_ItemEntity>();
 
+    private Button btn_crm_main;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crm_main);
 
+        btn_crm_main = (Button) findViewById(R.id.btn_crm_main);
+        btn_crm_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(crm_main_activity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         provinceSpinner = (Spinner)findViewById(R.id.spinner_gongwei);
         citySpinner = (Spinner)findViewById(R.id.spinner_gongxu);
         countySpinner = (Spinner)findViewById(R.id.spinner_xiangdian);
