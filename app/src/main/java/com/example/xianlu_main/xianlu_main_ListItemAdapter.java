@@ -24,6 +24,7 @@ public class xianlu_main_ListItemAdapter extends BaseAdapter {
 
     public xianlu_main_ListItemAdapter(Context ctx, ArrayList<xianlu_main_ItemEntity> items) {
         this.mContext = ctx;
+
         this.items = items;
     }
 
