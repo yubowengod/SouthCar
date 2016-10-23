@@ -1,0 +1,6 @@
+1.ViewPager中这个参数默认为1，也就是默认情况下，一次加载当前页面前后隔一个页面，
+
+private static final int DEFAULT_OFFSCREEN_PAGES = 1; 	//默认的加载页面,ViewPager是1个,所以会加载两个
+
+2.这里我们将这个参数改成0，不必要的情况下，只加载当前可见页面，
+private static final int DEFAULT_OFFSCREEN_PAGES = 0; 	//默认的加载页面,ViewPager是1个,所以会加载两个
