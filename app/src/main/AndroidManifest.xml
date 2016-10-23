@@ -42,12 +42,12 @@
             android:name=".MainActivity_slider"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
 
@@ -61,9 +61,16 @@
 
 
         <activity android:name="com.example.identity_pic.identity_pic_main_java">
-
         </activity>
 
+        <activity android:name="com.example.identity_pic.identity_num.identity_1_activity"></activity>
+        <activity android:name="com.example.identity_pic.identity_num.identity_2_activity"></activity>
+        <activity android:name="com.example.identity_pic.identity_num.identity_3_activity"></activity>
+        <activity android:name="com.example.identity_pic.identity_num.identity_4_activity"></activity>
+
+        <activity android:name="com.example.test_activity">
+
+        </activity>
         <activity android:name="com.arlen.photo.ui.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:screenOrientation="portrait">
