@@ -19,6 +19,8 @@ public class identity_1_activity extends AppCompatActivity {
 
     public static String [] no1 = new String[4];
     public static String [] no1_weizhi = {"左上角","右上角","左边","右边"};
+
+
     private int pic_num = 4;
     private Button btn;
 

@@ -49,7 +49,7 @@ public class xianlu_main_activity extends AppCompatActivity{
         public void handleMessage(Message msg) {
             // TODO Auto-generated method stub
             super.handleMessage(msg);
-            if (msg.what == 2012) {
+            if (msg.what == 2018) {
                 //只要在主线程就可以处理ui
                 ((ImageView) xianlu_main_activity.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
             }

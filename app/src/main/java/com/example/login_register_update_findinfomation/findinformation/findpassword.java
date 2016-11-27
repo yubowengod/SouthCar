@@ -42,7 +42,7 @@ public class findpassword extends Activity {
         public void handleMessage(Message msg) {
             // TODO Auto-generated method stub
             super.handleMessage(msg);
-            if (msg.what == 1111) {
+            if (msg.what == 2012) {
                 //只要在主线程就可以处理ui
                 ((ImageView) findpassword.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
             }
@@ -53,7 +53,7 @@ public class findpassword extends Activity {
         public void handleMessage(Message msg) {
             // TODO Auto-generated method stub
             super.handleMessage(msg);
-            if (msg.what == 1112) {
+            if (msg.what == 2013) {
                 //只要在主线程就可以处理ui
                 ((ImageView) findpassword.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
             }

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,7 +14,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
+import com.example.upload.gap_upload_identity_result;
+import com.example.upload.gap_upload_identity_result_test;
 import com.example.upload.test_mul;
+import com.example.upload.test_mul_test;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.yuyh.library.imgsel.ImageLoader;
@@ -30,11 +35,27 @@ import java.util.concurrent.Executors;
 
 public class test_activity extends AppCompatActivity {
 
+
     private static final int REQUEST_CODE = 0;
     private TextView tvResult;
     private SimpleDraweeView draweeView;
     ArrayList<String> pic_path=new ArrayList<>();
+    ArrayList<String> pic_path_flag=new ArrayList<>();
+    ArrayList<String> pic_path_test=new ArrayList<>();
+//     String  pic_path_flag;
+//     String  pic_path_test;
     private ExecutorService executorService;
+    private Handler mainHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            if (msg.what == 2010) {
+                //只要在主线程就可以处理ui
+                ((TextView) test_activity.this.findViewById(msg.arg1)).setText((String) msg.obj);
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +87,19 @@ public class test_activity extends AppCompatActivity {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    test_mul.getImageromSdk(pic_path);
-                    pic_path.clear();
+//                    test_mul.getImageromSdk(pic_path);
+//                    pic_path.clear();
+                    pic_path_flag.add("1");
+                    pic_path_test.add("C:\\Users\\GOD\\Pictures\\picture\\6.jpg");
+                    gap_upload_identity_result_test.getImageromSdk(pic_path_flag,pic_path_test);
+
+                        mainHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                tvResult.setText(gap_upload_identity_result_test.getList_result());
+                            }
+                        });
+
                 }
             });
         }

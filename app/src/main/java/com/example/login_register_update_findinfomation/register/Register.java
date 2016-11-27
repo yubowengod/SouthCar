@@ -52,7 +52,7 @@ public class Register extends Activity {
         public void handleMessage(Message msg) {
             // TODO Auto-generated method stub
             super.handleMessage(msg);
-            if (msg.what == 2113) {
+            if (msg.what == 2015) {
                 //只要在主线程就可以处理ui
                 ((TextView) Register.this.findViewById(msg.arg1)).setText((String) msg.obj);
             }

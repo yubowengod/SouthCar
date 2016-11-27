@@ -1,26 +1,59 @@
 package com.example.identity_pic.identity_num.identity_num_result_main;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_num.identity_1_activity;
 import com.example.identity_pic.identity_num.identity_num_listview_main.identity_num_listview_main_activity1;
+import com.example.upload.gap_upload_identity_result;
+import com.example.upload.test_mul;
+
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by GOD on 2016/10/25.
  */
 public class identity_num_result_main_activity extends AppCompatActivity {
+    private ExecutorService executorService;
+    private Handler mainHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            if (msg.what == 2011) {
+                //只要在主线程就可以处理ui
+                ((TextView) identity_num_result_main_activity.this.findViewById(msg.arg1)).setText((String) msg.obj);
+            }
+        }
+    };
+    ArrayList<String> identity_num_result_main_activity_no1=new ArrayList<>();
+    ArrayList<String> no1_weizhi_num=new ArrayList<>();
+
+
     private GridView identity_num_result_main_view;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_num_result_main);
+
+        executorService = Executors.newFixedThreadPool(5);
+        for(int i=0;i<4;i++)
+        {
+            no1_weizhi_num.add(String.valueOf(i));
+        }
         identity_num_result_main_view = (GridView) findViewById(R.id.identity_num_result_main_view);
         identity_num_result_main_view.setAdapter(new identity_num_result_main_activity_adapter(
                 identity_num_result_main_activity.this,
@@ -32,16 +65,33 @@ public class identity_num_result_main_activity extends AppCompatActivity {
         identity_num_result_main_btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(identity_num_result_main_activity.this, "fuck you!", Toast.LENGTH_SHORT).show();
+                identity_1_activity.no1 = new String[4];
+                Intent intent = new Intent(identity_num_result_main_activity.this,identity_num_listview_main_activity1.class);
+                startActivity(intent);
+                finish();
             }
         });
         identity_num_result_main_btn_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                identity_1_activity.no1 = new String[4];
-                Intent intent = new Intent(identity_num_result_main_activity.this,identity_num_listview_main_activity1.class);
-                startActivity(intent);
-                finish();
+                Toast.makeText(identity_num_result_main_activity.this, "fuck you!", Toast.LENGTH_SHORT).show();
+//                上传
+//               1、2、3、4
+
+                for(int i=0;i<4;i++){
+                    no1_weizhi_num.add(String.valueOf(i));
+                    identity_num_result_main_activity_no1.add(identity_1_activity.no1[i]);}
+
+                executorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        String result = "";
+                        gap_upload_identity_result.getImageromSdk(no1_weizhi_num,identity_num_result_main_activity_no1);
+
+                    }
+                });
+
+
             }
         });
     }

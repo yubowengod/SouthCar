@@ -57,7 +57,7 @@ public class MainActivity_uploadpic extends AppCompatActivity {
         public void handleMessage(Message msg) {
             // TODO Auto-generated method stub
             super.handleMessage(msg);
-            if (msg.what == 3333) {
+            if (msg.what == 2017) {
                 //只要在主线程就可以处理ui
                 ((ImageView) MainActivity_uploadpic.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
             }

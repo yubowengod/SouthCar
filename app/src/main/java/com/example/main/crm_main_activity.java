@@ -93,7 +93,7 @@ public class crm_main_activity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             // TODO Auto-generated method stub
             super.handleMessage(msg);
-            if (msg.what == 2114) {
+            if (msg.what == 2016) {
                 //只要在主线程就可以处理ui
                 ((ImageView) crm_main_activity.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
             }

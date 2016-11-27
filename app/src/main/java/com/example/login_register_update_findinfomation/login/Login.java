@@ -43,7 +43,7 @@ public class Login extends Activity {
         public void handleMessage(Message msg) {
             // TODO Auto-generated method stub
             super.handleMessage(msg);
-            if (msg.what == 2111) {
+            if (msg.what == 2014) {
                 //只要在主线程就可以处理ui
                 ((TextView) Login.this.findViewById(msg.arg1)).setText((String) msg.obj);
             }
