@@ -40,7 +40,7 @@ public class test_activity extends AppCompatActivity {
     private TextView tvResult;
     private SimpleDraweeView draweeView;
     ArrayList<String> pic_path=new ArrayList<>();
-    ArrayList<String> pic_path_flag=new ArrayList<>();
+    ArrayList<String> pic_flag=new ArrayList<>();
     ArrayList<String> pic_path_test=new ArrayList<>();
 //     String  pic_path_flag;
 //     String  pic_path_test;
@@ -89,9 +89,9 @@ public class test_activity extends AppCompatActivity {
                 public void run() {
 //                    test_mul.getImageromSdk(pic_path);
 //                    pic_path.clear();
-                    pic_path_flag.add("1");
-                    pic_path_test.add("C:\\Users\\GOD\\Pictures\\picture\\6.jpg");
-                    gap_upload_identity_result_test.getImageromSdk(pic_path_flag,pic_path_test);
+                    pic_flag.add("1");
+                    pic_path_test.add("D:\\web\\WebApplication1\\webnnn\\6.jpg");
+                    gap_upload_identity_result_test.getImageromSdk(pic_flag,pic_path_test);
 
                         mainHandler.post(new Runnable() {
                             @Override

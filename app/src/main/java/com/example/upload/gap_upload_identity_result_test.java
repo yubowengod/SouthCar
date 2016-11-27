@@ -30,7 +30,7 @@ public class gap_upload_identity_result_test {
             for (int i = 0; i < pic_path.size(); i++) {
                 String ww=pic_path.get(i);
 
-                String methodName = "calculate_gap_dll";
+                String methodName = "HelloWorld";
 
                 getImageFromAndroid(methodName,gapflag.get(i), pic_path.get(i));   //调用webservice
 
