@@ -1,5 +1,6 @@
 package com.example;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -83,6 +84,8 @@ public class test_activity extends AppCompatActivity {
     }
 
     public void upload(View view){
+        final ProgressDialog dialog = ProgressDialog.show(test_activity.this, "数据上传中", "请稍候...", true);
+
         if (pic_path.size()>0){
             executorService.execute(new Runnable() {
                 @Override
@@ -91,12 +94,24 @@ public class test_activity extends AppCompatActivity {
 //                    pic_path.clear();
                     pic_flag.add("1");
                     pic_path_test.add("D:\\web\\WebApplication1\\webnnn\\6.jpg");
-                    gap_upload_identity_result_test.getImageromSdk(pic_flag,pic_path_test);
+                    gap_upload_identity_result.getImageromSdk(pic_flag,pic_path);
+
+
 
                         mainHandler.post(new Runnable() {
                             @Override
                             public void run() {
-                                tvResult.setText(gap_upload_identity_result_test.getList_result());
+
+                                if (gap_upload_identity_result.return_true_flag.size()!=0)
+                                {
+                                    dialog.dismiss();
+                                    String[] aa = gap_upload_identity_result.return_true_flag.get(0).split("@");
+                                    tvResult.setText(aa[0]+"---"+aa[1]);
+                                    gap_upload_identity_result.return_true_flag.clear();
+                                    pic_flag.clear();
+                                    pic_path.clear();
+                                }
+
                             }
                         });
 
