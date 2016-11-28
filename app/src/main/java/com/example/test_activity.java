@@ -40,7 +40,9 @@ public class test_activity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 0;
     private TextView tvResult;
+    private TextView tvResult1;
     private EditText editText;
+
     private SimpleDraweeView draweeView;
     ArrayList<String> pic_path=new ArrayList<>();
     ArrayList<String> pic_flag=new ArrayList<>();
@@ -67,6 +69,7 @@ public class test_activity extends AppCompatActivity {
         executorService = Executors.newFixedThreadPool(5);//开启5个线程，其实根据你的情况，一般不会超过8个
 
         tvResult = (TextView) findViewById(R.id.tvResult);
+        tvResult1 = (TextView) findViewById(R.id.tvResult1);
         editText = (EditText) findViewById(R.id.test_edittext);
         draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);
     }
@@ -109,7 +112,8 @@ public class test_activity extends AppCompatActivity {
                                 {
                                     dialog.dismiss();
                                     String[] aa = gap_upload_identity_result.return_true_flag.get(0).split("@");
-                                    tvResult.setText(aa[0]+"---"+aa[1]);
+                                    tvResult.setText(aa[0]);
+                                    tvResult1.setText(aa[1]);
                                     gap_upload_identity_result.return_true_flag.clear();
                                     pic_flag.clear();
                                     pic_path.clear();
