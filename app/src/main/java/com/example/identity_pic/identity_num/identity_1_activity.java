@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class identity_1_activity extends AppCompatActivity {
 
     public static String [] no1 = new String[4];
-    public static String [] no1_weizhi = {"左上角","右上角","左边","右边"};
-
+    public static String [] no1_weizhi = {"左上角","右上角","右下角","左下角"};
+    public static String [] no1_weizhi_flag = {"1","2","3","4"};
 
     private int pic_num = 4;
     private Button btn;

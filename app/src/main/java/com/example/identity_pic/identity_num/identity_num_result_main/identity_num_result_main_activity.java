@@ -28,6 +28,7 @@ import java.util.concurrent.Executors;
  */
 public class identity_num_result_main_activity extends AppCompatActivity {
     private ExecutorService executorService;
+    private TextView identity_num_result_main_textview;
     private Handler mainHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -61,26 +62,20 @@ public class identity_num_result_main_activity extends AppCompatActivity {
 
         Button identity_num_result_main_btn_right = (Button) findViewById(R.id.identity_num_result_main_btn_right);
         Button identity_num_result_main_btn_left = (Button) findViewById(R.id.identity_num_result_main_btn_left);
+        identity_num_result_main_textview = (TextView) findViewById(R.id.identity_num_result_main_textview);
 
         identity_num_result_main_btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                identity_1_activity.no1 = new String[4];
-                Intent intent = new Intent(identity_num_result_main_activity.this,identity_num_listview_main_activity1.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        identity_num_result_main_btn_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(identity_num_result_main_activity.this, "fuck you!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(identity_num_result_main_activity.this, "上传图片!", Toast.LENGTH_SHORT).show();
 //                上传
 //               1、2、3、4
+                final ProgressDialog dialog = ProgressDialog.show(identity_num_result_main_activity.this, "数据上传中", "请稍候...", true);
 
                 for(int i=0;i<4;i++){
-                    no1_weizhi_num.add(String.valueOf(i));
-                    identity_num_result_main_activity_no1.add(identity_1_activity.no1[i]);}
+                    no1_weizhi_num.add(identity_1_activity.no1_weizhi_flag[i]);
+                    identity_num_result_main_activity_no1.add(identity_1_activity.no1[i]);
+                }
 
                 executorService.execute(new Runnable() {
                     @Override
@@ -88,10 +83,43 @@ public class identity_num_result_main_activity extends AppCompatActivity {
                         String result = "";
                         gap_upload_identity_result.getImageromSdk(no1_weizhi_num,identity_num_result_main_activity_no1);
 
+                        mainHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (gap_upload_identity_result.return_true_flag.size() == 4)
+                                {
+                                    dialog.dismiss();
+                                    String result = "";
+                                    for (int i=0;i<4;i++)
+                                    {
+                                        result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
+                                    }
+                                    identity_num_result_main_textview.setText(result);
+                                }
+//                                if (gap_upload_identity_result.return_true_flag.size()!=0)
+//                                {
+//                                    dialog.dismiss();
+//                                    String[] aa = gap_upload_identity_result.return_true_flag.get(0).split("@");
+//                                    tvResult.setText(aa[0]+"---"+aa[1]);
+//                                    gap_upload_identity_result.return_true_flag.clear();
+//                                    pic_flag.clear();
+//                                    pic_path.clear();
+//                                }
+
+                            }
+                        });
                     }
                 });
+            }
 
-
+        });
+        identity_num_result_main_btn_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                identity_1_activity.no1 = new String[4];
+                Intent intent = new Intent(identity_num_result_main_activity.this,identity_num_listview_main_activity1.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

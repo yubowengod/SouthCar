@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class test_activity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 0;
     private TextView tvResult;
+    private EditText editText;
     private SimpleDraweeView draweeView;
     ArrayList<String> pic_path=new ArrayList<>();
     ArrayList<String> pic_flag=new ArrayList<>();
@@ -65,6 +67,7 @@ public class test_activity extends AppCompatActivity {
         executorService = Executors.newFixedThreadPool(5);//开启5个线程，其实根据你的情况，一般不会超过8个
 
         tvResult = (TextView) findViewById(R.id.tvResult);
+        editText = (EditText) findViewById(R.id.test_edittext);
         draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);
     }
     private ImageLoader loader = new ImageLoader() {
@@ -84,6 +87,7 @@ public class test_activity extends AppCompatActivity {
     }
 
     public void upload(View view){
+
         final ProgressDialog dialog = ProgressDialog.show(test_activity.this, "数据上传中", "请稍候...", true);
 
         if (pic_path.size()>0){
@@ -92,11 +96,10 @@ public class test_activity extends AppCompatActivity {
                 public void run() {
 //                    test_mul.getImageromSdk(pic_path);
 //                    pic_path.clear();
-                    pic_flag.add("1");
-                    pic_path_test.add("D:\\web\\WebApplication1\\webnnn\\6.jpg");
+                    String ww = editText.getText().toString();
+                    pic_flag.add(ww);
+//                    pic_path_test.add("D:\\web\\WebApplication1\\webnnn\\6.jpg");
                     gap_upload_identity_result.getImageromSdk(pic_flag,pic_path);
-
-
 
                         mainHandler.post(new Runnable() {
                             @Override
@@ -121,6 +124,7 @@ public class test_activity extends AppCompatActivity {
         else{
             Toast.makeText(test_activity.this, "!!!", Toast.LENGTH_SHORT).show();
         }
+
     }
 
 
