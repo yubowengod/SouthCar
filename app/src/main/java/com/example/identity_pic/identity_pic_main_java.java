@@ -7,13 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_num.identity_1_activity;
-import com.example.identity_pic.identity_num.identity_2_activity;
-import com.example.identity_pic.identity_num.identity_3_activity;
-import com.example.identity_pic.identity_num.identity_4_activity;
+import com.example.identity_pic.identity_num.one_door.identity_1_activity;
+import com.example.identity_pic.identity_num.two_door.identity_2_activity;
+import com.example.identity_pic.identity_num.three_door.identity_3_activity;
+import com.example.identity_pic.identity_num.four_door.identity_4_activity;
 import com.example.test_activity;
-import com.example.upload.test;
-import com.example.xianlu_main.xianlu_main_activity;
 
 import java.util.ArrayList;
 

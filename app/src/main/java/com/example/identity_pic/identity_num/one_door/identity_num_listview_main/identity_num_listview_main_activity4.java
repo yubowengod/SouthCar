@@ -1,18 +1,22 @@
-package com.example.identity_pic.identity_num.identity_num_listview_main;
+package com.example.identity_pic.identity_num.one_door.identity_num_listview_main;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_num.identity_1_activity;
+import com.example.identity_pic.identity_num.one_door.identity_1_activity;
+import com.example.identity_pic.identity_num.one_door.identity_num_result_main.identity_num_result_main_activity;
 import com.yuyh.library.imgsel.ImageLoader;
 import com.yuyh.library.imgsel.ImgSelActivity;
 import com.yuyh.library.imgsel.ImgSelConfig;
@@ -22,13 +26,14 @@ import java.util.List;
 /**
  * Created by GOD on 2016/10/24.
  */
-public class identity_num_listview_main_activity2 extends AppCompatActivity{
-    private int flag = 2;
+public class identity_num_listview_main_activity4 extends AppCompatActivity{
+    private int flag = 4;
     private static final int REQUEST_CODE = 0;
     private Button btn_r;
     private Button btn_m;
     private Button btn_l;
     private ImageView avatar;
+    private AlertDialog ad;
     private ImageLoader loader = new ImageLoader() {
         @Override
         public void displayImage(Context context, String path, ImageView imageView) {
@@ -39,6 +44,7 @@ public class identity_num_listview_main_activity2 extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_num_listview_main);
+
         textView=(TextView)findViewById(R.id.identity_num_listview_main_listview_item_name);
         if (flag==1){
             textView.setText(identity_1_activity.no1_weizhi[0]);
@@ -53,7 +59,7 @@ public class identity_num_listview_main_activity2 extends AppCompatActivity{
             textView.setText(identity_1_activity.no1_weizhi[3]);
         }
         avatar=(ImageView)findViewById(R.id.identity_num_listview_main_listview_item_avatar);
-        Glide.with(identity_num_listview_main_activity2.this).load(identity_1_activity.no1[1]).fitCenter().skipMemoryCache(true).into(avatar);
+        Glide.with(identity_num_listview_main_activity4.this).load(identity_1_activity.no1[3]).fitCenter().skipMemoryCache(true).into(avatar);
         btn_m=(Button)findViewById(R.id.identity_num_listview_main_listview_item_btn_mid);
 
         btn_r=(Button)findViewById(R.id.identity_num_listview_main_listview_item_btn_right);
@@ -84,32 +90,56 @@ public class identity_num_listview_main_activity2 extends AppCompatActivity{
                         // 最大选择图片数量
                         .maxNum(9)
                         .build();
-                ImgSelActivity.startActivity(identity_num_listview_main_activity2.this, config, REQUEST_CODE);
+                ImgSelActivity.startActivity(identity_num_listview_main_activity4.this, config, REQUEST_CODE);
             }
         });
         btn_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(identity_num_listview_main_activity2.this,identity_num_listview_main_activity1.class);
-                startActivity(intent);finish();
+
+                Intent intent = new Intent(identity_num_listview_main_activity4.this,identity_num_listview_main_activity3.class);
+                startActivity(intent);
+                finish();
             }
         });
         btn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(identity_num_listview_main_activity2.this,identity_num_listview_main_activity3.class);
-                startActivity(intent);finish();
+
+                if (flag==4){
+                    Toast.makeText(identity_num_listview_main_activity4.this, "此项为最后一项", Toast.LENGTH_SHORT).show();
+                }
+                new AlertDialog.Builder(identity_num_listview_main_activity4.this)
+                        .setTitle("确认")
+                        .setMessage("确定吗？")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(identity_num_listview_main_activity4.this,identity_num_result_main_activity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("否", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .show();
+
             }
         });
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             List<String> pathList = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
-            Glide.with(identity_num_listview_main_activity2.this).load(pathList.get(0)).fitCenter().skipMemoryCache(true).into(avatar);
-            identity_1_activity.no1[1] = pathList.get(0);
+            Glide.with(identity_num_listview_main_activity4.this).load(pathList.get(0)).fitCenter().skipMemoryCache(true).into(avatar);
+            identity_1_activity.no1[3] = pathList.get(0);
         }
     }
 }

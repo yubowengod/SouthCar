@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_num.identity_num_result_main.identity_num_result_main_returnfrompc;
+package com.example.identity_pic.identity_num.one_door.identity_num_result_main.identity_num_result_main_returnfrompc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

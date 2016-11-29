@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_num.identity_num_listview_main;
+package com.example.identity_pic.identity_num.one_door.identity_num_listview_main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_num.identity_1_activity;
+import com.example.identity_pic.identity_num.one_door.identity_1_activity;
 import com.yuyh.library.imgsel.ImageLoader;
 import com.yuyh.library.imgsel.ImgSelActivity;
 import com.yuyh.library.imgsel.ImgSelConfig;
@@ -22,8 +22,8 @@ import java.util.List;
 /**
  * Created by GOD on 2016/10/24.
  */
-public class identity_num_listview_main_activity3 extends AppCompatActivity{
-    private int flag = 3;
+public class identity_num_listview_main_activity2 extends AppCompatActivity{
+    private int flag = 2;
     private static final int REQUEST_CODE = 0;
     private Button btn_r;
     private Button btn_m;
@@ -53,7 +53,7 @@ public class identity_num_listview_main_activity3 extends AppCompatActivity{
             textView.setText(identity_1_activity.no1_weizhi[3]);
         }
         avatar=(ImageView)findViewById(R.id.identity_num_listview_main_listview_item_avatar);
-        Glide.with(identity_num_listview_main_activity3.this).load(identity_1_activity.no1[2]).fitCenter().skipMemoryCache(true).into(avatar);
+        Glide.with(identity_num_listview_main_activity2.this).load(identity_1_activity.no1[1]).fitCenter().skipMemoryCache(true).into(avatar);
         btn_m=(Button)findViewById(R.id.identity_num_listview_main_listview_item_btn_mid);
 
         btn_r=(Button)findViewById(R.id.identity_num_listview_main_listview_item_btn_right);
@@ -84,20 +84,20 @@ public class identity_num_listview_main_activity3 extends AppCompatActivity{
                         // 最大选择图片数量
                         .maxNum(9)
                         .build();
-                ImgSelActivity.startActivity(identity_num_listview_main_activity3.this, config, REQUEST_CODE);
+                ImgSelActivity.startActivity(identity_num_listview_main_activity2.this, config, REQUEST_CODE);
             }
         });
         btn_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(identity_num_listview_main_activity3.this,identity_num_listview_main_activity2.class);
+                Intent intent = new Intent(identity_num_listview_main_activity2.this,identity_num_listview_main_activity1.class);
                 startActivity(intent);finish();
             }
         });
         btn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(identity_num_listview_main_activity3.this,identity_num_listview_main_activity4.class);
+                Intent intent = new Intent(identity_num_listview_main_activity2.this,identity_num_listview_main_activity3.class);
                 startActivity(intent);finish();
             }
         });
@@ -108,8 +108,8 @@ public class identity_num_listview_main_activity3 extends AppCompatActivity{
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             List<String> pathList = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
-            Glide.with(identity_num_listview_main_activity3.this).load(pathList.get(0)).fitCenter().skipMemoryCache(true).into(avatar);
-            identity_1_activity.no1[2] = pathList.get(0);
+            Glide.with(identity_num_listview_main_activity2.this).load(pathList.get(0)).fitCenter().skipMemoryCache(true).into(avatar);
+            identity_1_activity.no1[1] = pathList.get(0);
         }
     }
 }

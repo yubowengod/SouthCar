@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_num.identity_num_result_main;
+package com.example.identity_pic.identity_num.one_door.identity_num_result_main;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,16 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_num.identity_1_activity;
-import com.example.identity_pic.identity_num.identity_num_listview_main.identity_num_listview_main_activity1;
-import com.example.identity_pic.identity_num.identity_num_result_main.identity_num_result_main_returnfrompc.identity_num_result_main_returnfrompc_activity;
+import com.example.identity_pic.identity_num.one_door.identity_1_activity;
+import com.example.identity_pic.identity_num.one_door.identity_num_listview_main.identity_num_listview_main_activity1;
+import com.example.identity_pic.identity_num.one_door.identity_num_result_main.identity_num_result_main_returnfrompc.identity_num_result_main_returnfrompc_activity;
 import com.example.upload.gap_upload_identity_result;
-import com.example.upload.test_mul;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;

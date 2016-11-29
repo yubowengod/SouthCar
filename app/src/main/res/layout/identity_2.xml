@@ -1,38 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:src="@mipmap/identity2"
-            android:layout_gravity="center_horizontal"/>
-
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@mipmap/identity2"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:background="@color/div_white"
-        android:layout_alignParentBottom="true"/>
+        android:id="@+id/view2"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView2"
+        android:layout_above="@+id/view">
+        <TextView
+            android:id="@+id/identity2_directions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="说明
+            。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。"
+            android:textSize="20sp"/>
+    </ScrollView>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/div_white"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/view" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <GridView
-            android:id="@+id/identity1_grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnWidth="@dimen/image_thumbnail_size"
-            android:gravity="center"
-            android:horizontalSpacing="@dimen/image_thumbnail_spacing"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="@dimen/image_thumbnail_spacing" >
-        </GridView>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_identity_2_bottom"/>
+
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

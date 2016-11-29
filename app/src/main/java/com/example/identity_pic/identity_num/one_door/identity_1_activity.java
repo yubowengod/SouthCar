@@ -1,16 +1,13 @@
-package com.example.identity_pic.identity_num;
+package com.example.identity_pic.identity_num.one_door;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_num.identity_num_listview_main.identity_num_listview_main_activity1;
-import com.example.imagedemo.ImagePagerActivity;
-import java.util.ArrayList;
+import com.example.identity_pic.identity_num.one_door.identity_num_listview_main.identity_num_listview_main_activity1;
 
 /**
  * Created by GOD on 2016/10/20.
@@ -35,5 +32,4 @@ public class identity_1_activity extends AppCompatActivity {
             }
         });
     }
-
 }

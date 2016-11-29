@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_num.identity_num_result_main;
+package com.example.identity_pic.identity_num.one_door.identity_num_result_main;
 
 import android.content.Context;
 import android.os.Bundle;

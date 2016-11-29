@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_num.identity_num_listview_main;
+package com.example.identity_pic.identity_num.one_door.identity_num_listview_main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_num.identity_1_activity;
+import com.example.identity_pic.identity_num.one_door.identity_1_activity;
 import com.yuyh.library.imgsel.ImageLoader;
 import com.yuyh.library.imgsel.ImgSelActivity;
 import com.yuyh.library.imgsel.ImgSelConfig;
