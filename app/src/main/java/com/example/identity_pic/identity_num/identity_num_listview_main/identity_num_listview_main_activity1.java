@@ -53,6 +53,7 @@ public class identity_num_listview_main_activity1 extends AppCompatActivity{
         else if (flag==4){
             textView.setText(identity_1_activity.no1_weizhi[3]);
         }
+
         avatar=(ImageView)findViewById(R.id.identity_num_listview_main_listview_item_avatar);
         Glide.with(identity_num_listview_main_activity1.this).load(identity_1_activity.no1[0]).fitCenter().skipMemoryCache(true).into(avatar);
         btn_m=(Button)findViewById(R.id.identity_num_listview_main_listview_item_btn_mid);

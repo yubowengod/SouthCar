@@ -110,6 +110,7 @@
 
 
 
+        <activity android:name="com.example.identity_pic.identity_num.identity_num_result_main.identity_num_result_main_returnfrompc.identity_num_result_main_returnfrompc_activity"></activity>
     </application>
 
 </manifest>

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_num.identity_1_activity;
 import com.example.identity_pic.identity_num.identity_num_listview_main.identity_num_listview_main_activity1;
+import com.example.identity_pic.identity_num.identity_num_result_main.identity_num_result_main_returnfrompc.identity_num_result_main_returnfrompc_activity;
 import com.example.upload.gap_upload_identity_result;
 import com.example.upload.test_mul;
 
@@ -29,6 +30,7 @@ import java.util.concurrent.Executors;
 public class identity_num_result_main_activity extends AppCompatActivity {
     private ExecutorService executorService;
     private TextView identity_num_result_main_textview;
+    private Button identity_num_result_main_btn_view_result;
     private Handler mainHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -51,10 +53,10 @@ public class identity_num_result_main_activity extends AppCompatActivity {
         setContentView(R.layout.identity_num_result_main);
 
         executorService = Executors.newFixedThreadPool(5);
-        for(int i=0;i<4;i++)
-        {
-            no1_weizhi_num.add(String.valueOf(i));
-        }
+//        for(int i=0;i<4;i++)
+//        {
+//            no1_weizhi_num.add(String.valueOf(i));
+//        }
         identity_num_result_main_view = (GridView) findViewById(R.id.identity_num_result_main_view);
         identity_num_result_main_view.setAdapter(new identity_num_result_main_activity_adapter(
                 identity_num_result_main_activity.this,
@@ -62,6 +64,7 @@ public class identity_num_result_main_activity extends AppCompatActivity {
 
         Button identity_num_result_main_btn_right = (Button) findViewById(R.id.identity_num_result_main_btn_right);
         Button identity_num_result_main_btn_left = (Button) findViewById(R.id.identity_num_result_main_btn_left);
+        identity_num_result_main_btn_view_result = (Button) findViewById(R.id.identity_num_result_main_btn_view_result);
         identity_num_result_main_textview = (TextView) findViewById(R.id.identity_num_result_main_textview);
 
         identity_num_result_main_btn_right.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +83,7 @@ public class identity_num_result_main_activity extends AppCompatActivity {
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        String result = "";
+
                         gap_upload_identity_result.getImageromSdk(no1_weizhi_num,identity_num_result_main_activity_no1);
 
                         mainHandler.post(new Runnable() {
@@ -95,17 +98,8 @@ public class identity_num_result_main_activity extends AppCompatActivity {
                                         result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
                                     }
                                     identity_num_result_main_textview.setText(result);
+                                    identity_num_result_main_btn_view_result.setVisibility(View.VISIBLE);
                                 }
-//                                if (gap_upload_identity_result.return_true_flag.size()!=0)
-//                                {
-//                                    dialog.dismiss();
-//                                    String[] aa = gap_upload_identity_result.return_true_flag.get(0).split("@");
-//                                    tvResult.setText(aa[0]+"---"+aa[1]);
-//                                    gap_upload_identity_result.return_true_flag.clear();
-//                                    pic_flag.clear();
-//                                    pic_path.clear();
-//                                }
-
                             }
                         });
                     }
@@ -118,6 +112,14 @@ public class identity_num_result_main_activity extends AppCompatActivity {
             public void onClick(View view) {
                 identity_1_activity.no1 = new String[4];
                 Intent intent = new Intent(identity_num_result_main_activity.this,identity_num_listview_main_activity1.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        identity_num_result_main_btn_view_result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(identity_num_result_main_activity.this,identity_num_result_main_returnfrompc_activity.class);
                 startActivity(intent);
                 finish();
             }

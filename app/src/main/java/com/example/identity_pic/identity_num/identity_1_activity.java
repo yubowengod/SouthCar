@@ -21,15 +21,13 @@ public class identity_1_activity extends AppCompatActivity {
     public static String [] no1_weizhi = {"左上角","右上角","右下角","左下角"};
     public static String [] no1_weizhi_flag = {"1","2","3","4"};
 
-    private int pic_num = 4;
-    private Button btn;
+    private Button identity_1_activity_btn;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_1);
-
-        btn = (Button) findViewById(R.id.btn_identity_1_bottom);
-        btn.setOnClickListener(new View.OnClickListener() {
+        identity_1_activity_btn = (Button) findViewById(R.id.btn_identity_1_bottom);
+        identity_1_activity_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(identity_1_activity.this,identity_num_listview_main_activity1.class);
