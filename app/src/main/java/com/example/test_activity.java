@@ -43,6 +43,9 @@ public class test_activity extends AppCompatActivity {
     private TextView tvResult1;
     private TextView tvResult2;
     private TextView tvResult3;
+    private TextView tvResult4;
+    private TextView tvResult5;
+    private TextView tvResult6;
     private EditText editText;
 
     private SimpleDraweeView draweeView;
@@ -73,6 +76,9 @@ public class test_activity extends AppCompatActivity {
         tvResult1 = (TextView) findViewById(R.id.tvResult1);
         tvResult2 = (TextView) findViewById(R.id.tvResult2);
         tvResult3 = (TextView) findViewById(R.id.tvResult3);
+        tvResult4 = (TextView) findViewById(R.id.tvResult4);
+        tvResult5 = (TextView) findViewById(R.id.tvResult5);
+        tvResult6 = (TextView) findViewById(R.id.tvResult6);
 
         editText = (EditText) findViewById(R.id.test_edittext);
         draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);
@@ -120,6 +126,8 @@ public class test_activity extends AppCompatActivity {
 
     public void upload(View view){
 
+        editText.setText("1@2@3@4@5@6@7");
+
         final ProgressDialog dialog = ProgressDialog.show(test_activity.this, "数据上传中", "请稍候...", true);
 
         if (pic_path_test.size()>0){
@@ -128,11 +136,16 @@ public class test_activity extends AppCompatActivity {
                 public void run() {
 
 //                    String ww = editText.getText().toString();
+
                     String[] www =editText.getText().toString().split("@");
-                    pic_flag.add(www[0]);
-                    pic_flag.add(www[1]);
-                    pic_flag.add(www[2]);
-                    pic_flag.add(www[3]);
+                    for (int i =0;i<www.length;i++)
+                    {
+                        pic_flag.add(www[i]);
+                    }
+//                    pic_flag.add(www[0]);
+//                    pic_flag.add(www[1]);
+//                    pic_flag.add(www[2]);
+//                    pic_flag.add(www[3]);
 //                    pic_path_test.add("D:\\web\\WebApplication1\\webnnn\\6.jpg");
                     gap_upload_identity_result.getImageromSdk(pic_flag,pic_path_test);
 
@@ -140,7 +153,7 @@ public class test_activity extends AppCompatActivity {
                             @Override
                             public void run() {
 
-                                if (gap_upload_identity_result.return_true_flag.size()==4)
+                                if (gap_upload_identity_result.return_true_flag.size()==7)
                                 {
                                     dialog.dismiss();
                                     String[] a = gap_upload_identity_result.return_true_flag.get(0).split("@");
@@ -151,6 +164,12 @@ public class test_activity extends AppCompatActivity {
                                     tvResult2.setText(aaa[1]);
                                     String[] aaaa = gap_upload_identity_result.return_true_flag.get(3).split("@");
                                     tvResult3.setText(aaaa[1]);
+                                    String[] aaaaa = gap_upload_identity_result.return_true_flag.get(4).split("@");
+                                    tvResult4.setText(aaaaa[1]);
+                                    String[] aaaaaa = gap_upload_identity_result.return_true_flag.get(5).split("@");
+                                    tvResult5.setText(aaaaaa[1]);
+                                    String[] aaaaaaa = gap_upload_identity_result.return_true_flag.get(6).split("@");
+                                    tvResult6.setText(aaaaaaa[1]);
                                     gap_upload_identity_result.return_true_flag.clear();
                                     pic_flag.clear();
                                     pic_path_test.clear();
