@@ -120,6 +120,7 @@ public class identity_2_result_main_activity extends AppCompatActivity {
                 Intent intent = new Intent(identity_2_result_main_activity.this,identity_num_result_main_returnfrompc_activity.class);
                 startActivity(intent);
                 finish();
+
             }
         });
     }
