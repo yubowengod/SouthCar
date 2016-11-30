@@ -85,6 +85,12 @@
 
         <activity android:name="com.example.identity_pic.identity_num.two_door.identity_num_result_main.identity_2_result_main_activity"></activity>
 
+        <activity android:name="com.example.identity_pic.identity_num.three_door.identity_num_listview_main.identity_3_listview_main_activity1"></activity>
+        <activity android:name="com.example.identity_pic.identity_num.three_door.identity_num_listview_main.identity_3_listview_main_activity2"></activity>
+        <activity android:name="com.example.identity_pic.identity_num.three_door.identity_num_listview_main.identity_3_listview_main_activity3"></activity>
+
+        <activity android:name="com.example.identity_pic.identity_num.three_door.identity_num_result_main.identity_3_result_main_activity"></activity>
+
 
         <activity android:name="com.example.test_activity">
 
