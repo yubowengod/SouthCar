@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_num.one_door.identity_num_listview_main.identity_num_listview_main_activity1;
+import com.example.identity_pic.identity_num.two_door.identity_num_listview_main.identity_2_listview_main_activity1;
 
 /**
  * Created by GOD on 2016/10/20.
@@ -26,7 +27,7 @@ public class identity_2_activity extends AppCompatActivity {
         identity_2_activity_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(identity_2_activity.this,identity_num_listview_main_activity1.class);
+                Intent intent = new Intent(identity_2_activity.this,identity_2_listview_main_activity1.class);
                 startActivity(intent);
             }
         });
