@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_pic_main_java;
+import com.example.identity_pic.identity_select.xianlu_identity_activity;
 import com.example.picturewall.PhotoWallAdapter;
 import com.example.xianlu_main.xianlu_main_activity;
 
@@ -118,7 +119,7 @@ public class MyFragment extends Fragment {
                 }
 
                 if(position == 1){
-                    Intent intent = new Intent(getActivity(),identity_pic_main_java.class);
+                    Intent intent = new Intent(getActivity(),xianlu_identity_activity.class);
                     getActivity().startActivity(intent);
                 }
 //                getActivity().finish();

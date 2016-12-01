@@ -51,21 +51,13 @@
         </activity>
 
 
-        <activity android:name="com.example.login_register_update_findinfomation.login.Login">
+        <activity android:name="com.example.login_register_update_findinfomation.login.Login"></activity>
 
-        </activity>
+        <activity android:name="com.example.MyFragment1.MyFragment1_broadcast"></activity>
 
-        <activity android:name="com.example.MyFragment1.MyFragment1_broadcast">
+        <activity android:name="com.example.identity_pic.identity_pic_main_java"></activity>
 
-        </activity>
-
-
-        <activity android:name="com.example.identity_pic.identity_pic_main_java">
-        </activity>
-
-
-
-
+        <activity android:name="com.example.identity_pic.identity_select.xianlu_identity_activity"></activity>
 
         <activity android:name="com.example.identity_pic.identity_num.one_door.identity_1_activity"></activity>
         <activity android:name="com.example.identity_pic.identity_num.two_door.identity_2_activity"></activity>
