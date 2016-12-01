@@ -63,6 +63,10 @@
         <activity android:name="com.example.identity_pic.identity_pic_main_java">
         </activity>
 
+
+
+
+
         <activity android:name="com.example.identity_pic.identity_num.one_door.identity_1_activity"></activity>
         <activity android:name="com.example.identity_pic.identity_num.two_door.identity_2_activity"></activity>
         <activity android:name="com.example.identity_pic.identity_num.three_door.identity_3_activity"></activity>

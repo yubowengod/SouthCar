@@ -2,6 +2,8 @@ package com.example.identity_pic.identity_num.identity_num_result_main_returnfro
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.god.southcar.R;
@@ -12,19 +14,24 @@ import com.example.upload.gap_upload_identity_result;
  */
 public class identity_num_result_main_returnfrompc_activity extends AppCompatActivity {
     private TextView identity_num_result_main_returnfrompc_textview_result;
+    private Button identity_num_result_main_returnfrompc_btn_right;
     private int i=0;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_num_result_main_returnfrompc);
         identity_num_result_main_returnfrompc_textview_result = (TextView) findViewById(R.id.identity_num_result_main_returnfrompc_textview_result);
-
+        identity_num_result_main_returnfrompc_btn_right = (Button) findViewById(R.id.identity_num_result_main_returnfrompc_btn_right);
+        identity_num_result_main_returnfrompc_btn_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                i=0;
+                gap_upload_identity_result.return_true_flag.clear();
+            }
+        });
         for (String path : gap_upload_identity_result.return_true_flag) {
             i++;
             identity_num_result_main_returnfrompc_textview_result.append(String.valueOf(i)+": "+path + "\n");
         }
-
-        i=0;
-
-        gap_upload_identity_result.return_true_flag.clear();
     }
 }

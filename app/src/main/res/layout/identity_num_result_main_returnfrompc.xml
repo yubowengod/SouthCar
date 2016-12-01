@@ -21,20 +21,12 @@
         android:id="@+id/linearLayout3">
 
         <Button
-            android:id="@+id/identity_num_result_main_btn_right"
+            android:id="@+id/identity_num_result_main_returnfrompc_btn_right"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="确定"
             android:textSize="18sp"/>
-        <Button
-            android:id="@+id/identity_num_result_main_btn_left"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="重拍"
-            android:textSize="18sp"/>
-
     </LinearLayout>
 
 
