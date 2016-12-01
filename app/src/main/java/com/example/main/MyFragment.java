@@ -13,8 +13,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_pic_main_java;
-import com.example.identity_pic.identity_select.xianlu_identity_activity;
+import com.example.identity_pic.identity_selsect_sum.identity_select.xianlu_identity_activity;
 import com.example.picturewall.PhotoWallAdapter;
 import com.example.xianlu_main.xianlu_main_activity;
 

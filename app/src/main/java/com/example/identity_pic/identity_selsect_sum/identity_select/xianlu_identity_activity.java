@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_select;
+package com.example.identity_pic.identity_selsect_sum.identity_select;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
+import com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity;
 import com.example.main.crm_main_activity;
 import com.example.oracle.xianlu_oracle;
 
@@ -195,7 +196,7 @@ public class xianlu_identity_activity extends AppCompatActivity{
                                             if (chehao.equals("") || chexiang.equals("")) {
                                                 showDialog();
                                             } else {
-                                                Intent intent = new Intent(xianlu_identity_activity.this, crm_main_activity.class);
+                                                Intent intent = new Intent(xianlu_identity_activity.this, identity_deal_main_activity.class);
                                                 Bundle bundle = new Bundle();
                                                 bundle.putString("zaizhuangxianlu", xianluname_str);
                                                 bundle.putString("zaizhuangxianlu_num", xianlunum_str);

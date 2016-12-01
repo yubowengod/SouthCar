@@ -11,7 +11,6 @@ import com.example.identity_pic.identity_num.one_door.identity_1_activity;
 import com.example.identity_pic.identity_num.two_door.identity_2_activity;
 import com.example.identity_pic.identity_num.three_door.identity_3_activity;
 import com.example.identity_pic.identity_num.four_door.identity_4_activity;
-import com.example.identity_pic.identity_select.xianlu_identity_activity;
 import com.example.test_activity;
 
 import java.util.ArrayList;

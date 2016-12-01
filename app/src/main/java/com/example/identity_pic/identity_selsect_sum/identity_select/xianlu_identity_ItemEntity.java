@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_select;
+package com.example.identity_pic.identity_selsect_sum.identity_select;
 
 /**
  * Created by GOD on 2016/9/27.

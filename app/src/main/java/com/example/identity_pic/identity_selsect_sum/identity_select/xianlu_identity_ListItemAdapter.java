@@ -1,4 +1,4 @@
-package com.example.identity_pic.identity_select;
+package com.example.identity_pic.identity_selsect_sum.identity_select;
 
 import android.content.Context;
 import android.view.View;
