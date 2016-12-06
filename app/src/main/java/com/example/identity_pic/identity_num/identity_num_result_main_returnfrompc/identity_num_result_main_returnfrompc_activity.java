@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.god.southcar.R;
+import com.example.identity_pic.identity_num.one_door.identity_1_activity;
+import com.example.identity_pic.identity_num.three_door.identity_3_activity;
+import com.example.identity_pic.identity_num.two_door.identity_2_activity;
 import com.example.upload.gap_upload_identity_result;
 
 /**
@@ -27,6 +30,10 @@ public class identity_num_result_main_returnfrompc_activity extends AppCompatAct
                 finish();
                 i=0;
                 gap_upload_identity_result.return_true_flag.clear();
+                identity_1_activity.no1 = new String[4];
+                identity_2_activity.no2 = new String[4];
+                identity_3_activity.no3 = new String[3];
+
             }
         });
         for (String path : gap_upload_identity_result.return_true_flag) {

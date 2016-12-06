@@ -24,6 +24,7 @@ public class identity_3_activity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_3);
+        no3 = new String[3];
         identity_3_activity_btn = (Button) findViewById(R.id.btn_identity_3_bottom);
         identity_3_activity_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -23,6 +23,7 @@ public class identity_1_activity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_1);
+//        no1 = new String[4];
         identity_1_activity_btn = (Button) findViewById(R.id.btn_identity_1_bottom);
         identity_1_activity_btn.setOnClickListener(new View.OnClickListener() {
             @Override
