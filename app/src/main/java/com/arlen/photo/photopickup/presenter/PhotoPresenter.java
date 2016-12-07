@@ -32,7 +32,7 @@ public class PhotoPresenter extends BasePhotoPresenter implements SimpleGrid.Cal
 
     private SimpleGrid mSimpleGrid;
 
-    private static final int MAX_SEL_PHOTOS = 10;//ini 10
+    private static final int MAX_SEL_PHOTOS = 9;//ini 9
 
     /**
      *

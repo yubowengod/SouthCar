@@ -22,7 +22,7 @@ public class identity_pic_main_java extends AppCompatActivity {
     private  ArrayList<String> leibie = new ArrayList<String>(){{add("str01"); add("str02");add("str03");add("str04");add("str05");}};
 
     private ArrayList<String> leibie_pic = new ArrayList<String>(){{add("1"); add("2");add("3");add("4");add("5");}};
-
+    public static String identity_pic_main_java_fengxileibie = "";
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_pic_main);
@@ -36,16 +36,19 @@ public class identity_pic_main_java extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i==0)
                 {
+                    identity_pic_main_java_fengxileibie = "1";
                     Intent intent = new Intent(identity_pic_main_java.this,identity_1_activity.class);
                     startActivity(intent);
                 }
                 if (i==1)
                 {
+                    identity_pic_main_java_fengxileibie = "2";
                     Intent intent = new Intent(identity_pic_main_java.this,identity_2_activity.class);
                     startActivity(intent);
                 }
                 if (i==2)
                 {
+                    identity_pic_main_java_fengxileibie = "3";
                     Intent intent = new Intent(identity_pic_main_java.this,identity_3_activity.class);
                     startActivity(intent);
                 }
@@ -56,6 +59,7 @@ public class identity_pic_main_java extends AppCompatActivity {
                 }
                 if (i==4)
                 {
+                    identity_pic_main_java_fengxileibie = "5";
                     Intent intent = new Intent(identity_pic_main_java.this,test_activity.class);
                     startActivity(intent);
                 }

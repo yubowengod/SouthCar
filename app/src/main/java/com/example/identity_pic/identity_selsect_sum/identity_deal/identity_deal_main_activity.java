@@ -31,7 +31,10 @@ import com.example.picturewall.PhotoWallAdapter;
 import com.example.upload.Data_up;
 import com.example.xianlu_main.xianlu_main_activity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by GOD on 2016/9/21.
@@ -160,6 +163,14 @@ public class identity_deal_main_activity extends AppCompatActivity {
 
     private Button btn_crm_main;
 
+    private String xianlu_up_chehao  ;
+    private String xianlu_up_chexing  ;
+    private String xianlu_up_zaizhuangxianlu ;
+    private String xianlu_up_zaizhuangxianlu_num ;
+    public static String identity_deal_main_activity_gongwei_gongxu_xiangdian = "";
+    public static String identity_deal_main_activity_xianlu_chehao_chexiang = "";
+    public static String nowadays = "";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_deal_main);
@@ -168,7 +179,28 @@ public class identity_deal_main_activity extends AppCompatActivity {
         btn_crm_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                Date dt = new Date();
+//                Long time = dt.getTime();
+//
+//                new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date());
+
+                Calendar cld = Calendar.getInstance();
+
+                int YY = cld.get(Calendar.YEAR);
+                int MM = cld.get(Calendar.MONTH)+1;
+                int DD = cld.get(Calendar.DATE);
+                int HH = cld.get(Calendar.HOUR_OF_DAY);
+                int mm = cld.get(Calendar.MINUTE);
+                int ss = cld.get(Calendar.SECOND);
+                int MI = cld.get(Calendar.MILLISECOND);
+//                2011-12-15 10:40:10.345
+                nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss+"."+MI;
+
                 Intent intent = new Intent(identity_deal_main_activity.this, identity_pic_main_java.class);
+
+                identity_deal_main_activity_gongwei_gongxu_xiangdian = mainActivity_login.gongwei[provincePosition]+","+mainActivity_login.gongxu[provincePosition][cityPosition]+","+mainActivity_login.xiangdian[provincePosition][cityPosition][countryPosition];
+
                 startActivity(intent);
             }
         });
@@ -178,10 +210,12 @@ public class identity_deal_main_activity extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
 
-        String xianlu_up_chehao = bundle.getString("chehao");
-        String xianlu_up_chexing = bundle.getString("chexing");
-        String xianlu_up_zaizhuangxianlu = bundle.getString("zaizhuangxianlu");
-        String xianlu_up_zaizhuangxianlu_num = bundle.getString("zaizhuangxianlu_num");
+        xianlu_up_chehao = bundle.getString("chehao");
+        xianlu_up_chexing = bundle.getString("chexing");
+        xianlu_up_zaizhuangxianlu = bundle.getString("zaizhuangxianlu");
+        xianlu_up_zaizhuangxianlu_num = bundle.getString("zaizhuangxianlu_num");
+        identity_deal_main_activity_xianlu_chehao_chexiang = xianlu_up_zaizhuangxianlu+","+ xianlu_up_chehao+","+xianlu_up_chehao;
+
 
         text_chehao = (TextView) findViewById(R.id.text_chehao);
         text_chexing = (TextView) findViewById(R.id.text_chexing);
@@ -289,6 +323,7 @@ public class identity_deal_main_activity extends AppCompatActivity {
                 //将地级适配器的值改变为city[position]中的值
                 SpinnerAdapter cityAdapter=new SpinnerAdapter(identity_deal_main_activity.this,android.R.layout.simple_spinner_item,
                         mainActivity_login.gongxu[position]);
+
                 // 设置二级下拉列表的选项内容适配器
                 citySpinner.setAdapter(cityAdapter);
                 provincePosition = position;    //记录当前省级序号，留给下面修改县级适配器时用
@@ -310,6 +345,7 @@ public class identity_deal_main_activity extends AppCompatActivity {
             {
                 SpinnerAdapter countyAdapter=new SpinnerAdapter(identity_deal_main_activity.this,android.R.layout.simple_spinner_item,
                         mainActivity_login.xiangdian[provincePosition][position]);
+
                 cityPosition = position;
                 countySpinner.setAdapter(countyAdapter);
             }
@@ -324,6 +360,7 @@ public class identity_deal_main_activity extends AppCompatActivity {
         countySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                countryPosition = position;
 
                 sp_text.setText(MainActivity_slider.jianceshuoming[provincePosition][cityPosition][position]);
 
