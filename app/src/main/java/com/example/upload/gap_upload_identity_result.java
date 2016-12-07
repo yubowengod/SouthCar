@@ -11,6 +11,7 @@ import com.arlen.photo.photopickup.presenter.PhotoPresenter;
 import com.arlen.photo.ui.MainActivity;
 import com.example.identity_pic.identity_pic_main_java;
 import com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity;
+import com.example.login_register_update_findinfomation.login.Login;
 
 import org.kobjects.base64.Base64;
 import org.ksoap2.SoapEnvelope;
@@ -72,6 +73,8 @@ public class gap_upload_identity_result {
             SoapObject soapObject = new SoapObject(SERVICE_NAMESPACE,methodName);
 
 //            (string xianlu_chehao_chexiang, string gognwei_gongxu_xiangdian, string fengxileibie, string gap_flag, string bytestr)
+
+            soapObject.addProperty("uploaduser", Login.Login_username);
             soapObject.addProperty("xianlu_chehao_chexiang",identity_deal_main_activity.identity_deal_main_activity_xianlu_chehao_chexiang);
             soapObject.addProperty("gognwei_gongxu_xiangdian",identity_deal_main_activity.identity_deal_main_activity_gongwei_gongxu_xiangdian);
             soapObject.addProperty("fengxileibie", identity_pic_main_java.identity_pic_main_java_fengxileibie);

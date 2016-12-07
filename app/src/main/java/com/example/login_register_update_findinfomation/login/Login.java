@@ -34,7 +34,9 @@ public class Login extends Activity {
 
     private TextView find_password_repassword_login;
     private TextView register_login;
-//    ????????????????????
+
+
+    public static String Login_username = "";
 
     private ExecutorService executorService;
 
@@ -95,13 +97,13 @@ public class Login extends Activity {
                     mainHandler.post(new Runnable() {
                         @Override
                         public void run() {
-
                             if (login_un_pw.getList_result().get(0).equals("1"))
                             {
-                            dialog.dismiss();
-                            Intent intent =new Intent(Login.this, MainActivity_slider.class);
-                            startActivity(intent);
-                            finish();
+                                dialog.dismiss();
+                                Intent intent =new Intent(Login.this, MainActivity_slider.class);
+                                startActivity(intent);
+                                Login_username = login_input_name.getText().toString();
+                                finish();
                             }
                             else
                             {
@@ -110,8 +112,6 @@ public class Login extends Activity {
                                 login_input_name.setText("");
                                 login_input_password.setText("");
                             }
-
-
                         }
                     });
                 }
