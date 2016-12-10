@@ -20,7 +20,7 @@ public class identity_3_activity extends AppCompatActivity {
     public static String [] no3_weizhi_flag = {"7","7","7"};
 
     private Button identity_3_activity_btn;
-
+    private Button btn_identity_3_bottom_left;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_3);
@@ -31,6 +31,14 @@ public class identity_3_activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(identity_3_activity.this,identity_3_listview_main_activity1.class);
                 startActivity(intent);
+            }
+        });
+
+        btn_identity_3_bottom_left = (Button) findViewById(R.id.btn_identity_3_bottom_left);
+        btn_identity_3_bottom_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

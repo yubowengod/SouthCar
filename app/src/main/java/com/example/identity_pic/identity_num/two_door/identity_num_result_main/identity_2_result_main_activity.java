@@ -16,9 +16,11 @@ import com.example.god.southcar.R;
 import com.example.identity_pic.identity_num.identity_num_result_main_returnfrompc.identity_num_result_main_returnfrompc_activity;
 import com.example.identity_pic.identity_num.two_door.identity_2_activity;
 import com.example.identity_pic.identity_num.two_door.identity_num_listview_main.identity_2_listview_main_activity1;
+import com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity;
 import com.example.upload.gap_upload_identity_result;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -71,6 +73,17 @@ public class identity_2_result_main_activity extends AppCompatActivity {
                 Toast.makeText(identity_2_result_main_activity.this, "上传图片!", Toast.LENGTH_SHORT).show();
 //                上传
 //               1、2、3、4
+                Calendar cld = Calendar.getInstance();
+                int YY = cld.get(Calendar.YEAR);
+                int MM = cld.get(Calendar.MONTH)+1;
+                int DD = cld.get(Calendar.DATE);
+                int HH = cld.get(Calendar.HOUR_OF_DAY);
+                int mm = cld.get(Calendar.MINUTE);
+                int ss = cld.get(Calendar.SECOND);
+                int MI = cld.get(Calendar.MILLISECOND);
+//                2011-12-15 10:40:10.345
+                identity_deal_main_activity.nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss+"."+MI;
+
                 final ProgressDialog dialog = ProgressDialog.show(identity_2_result_main_activity.this, "数据上传中", "请稍候...", true);
 
                 for(int i=0;i<4;i++){
@@ -108,7 +121,7 @@ public class identity_2_result_main_activity extends AppCompatActivity {
         identity_num_result_main_btn_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                identity_2_activity.no2 = new String[4];
+                identity_2_activity.no2 = new String[4];gap_upload_identity_result.return_true_flag.clear();
                 Intent intent = new Intent(identity_2_result_main_activity.this,identity_2_listview_main_activity1.class);
                 startActivity(intent);
                 finish();

@@ -19,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login_register_update_findinfomation.login.Login;
 import com.example.main.Data;
 import com.example.main.MyFragment;
 import com.example.main.MyFragment1;
@@ -67,6 +68,8 @@ public class MainActivity_slider extends AppCompatActivity
     private FragmentManager fManager1 = null;
     private long exitTime = 0;
 
+    private TextView nav_header_main_activity_slider_textview_name1;
+    private TextView nav_header_main_activity_slider_textview_name2;
     private ExecutorService executorService;
     private List<String> urlList = new ArrayList<String>();
     public static String [] gongwei = null;
@@ -158,6 +161,8 @@ public class MainActivity_slider extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity_slider);
+
+
 
         executorService = Executors.newFixedThreadPool(5);
         ini_spinner();

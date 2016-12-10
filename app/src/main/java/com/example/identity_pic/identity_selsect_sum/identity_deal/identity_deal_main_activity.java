@@ -185,17 +185,7 @@ public class identity_deal_main_activity extends AppCompatActivity {
 //
 //                new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date());
 
-                Calendar cld = Calendar.getInstance();
 
-                int YY = cld.get(Calendar.YEAR);
-                int MM = cld.get(Calendar.MONTH)+1;
-                int DD = cld.get(Calendar.DATE);
-                int HH = cld.get(Calendar.HOUR_OF_DAY);
-                int mm = cld.get(Calendar.MINUTE);
-                int ss = cld.get(Calendar.SECOND);
-                int MI = cld.get(Calendar.MILLISECOND);
-//                2011-12-15 10:40:10.345
-                nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss+"."+MI;
 
                 Intent intent = new Intent(identity_deal_main_activity.this, identity_pic_main_java.class);
 

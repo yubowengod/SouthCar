@@ -104,7 +104,7 @@ public class identity_3_listview_main_activity3 extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                if (flag==4){
+                if (flag==3){
                     Toast.makeText(identity_3_listview_main_activity3.this, "此项为最后一项", Toast.LENGTH_SHORT).show();
                 }
                 new AlertDialog.Builder(identity_3_listview_main_activity3.this)

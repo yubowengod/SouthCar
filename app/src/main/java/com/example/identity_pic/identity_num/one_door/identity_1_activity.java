@@ -15,16 +15,17 @@ import com.example.identity_pic.identity_num.one_door.identity_num_listview_main
 public class identity_1_activity extends AppCompatActivity {
 
     public static String [] no1 = new String[4];
-    public static String [] no1_weizhi = {"左上角","右上角","右下角","左下角"};
-    public static String [] no1_weizhi_flag = {"1","2","3","4"};
+    public static String [] no1_weizhi = {"左上角","右上角","左下角","右下角"};
+    public static String [] no1_weizhi_flag = {"1","2","4","3"};
 
     private Button identity_1_activity_btn;
-
+    private Button btn_identity_1_bottom_left;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_1);
 //        no1 = new String[4];
         identity_1_activity_btn = (Button) findViewById(R.id.btn_identity_1_bottom);
+
         identity_1_activity_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,5 +33,14 @@ public class identity_1_activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_identity_1_bottom_left = (Button) findViewById(R.id.btn_identity_1_bottom_left);
+        btn_identity_1_bottom_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
     }
 }
