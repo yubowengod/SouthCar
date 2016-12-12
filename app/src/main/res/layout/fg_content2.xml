@@ -54,7 +54,11 @@
             android:background="#ffc8c8c8" />
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_uploadpic_info_fengxi"
+            android:text="查看缝隙上传历史"
+            android:textSize="18sp"
+            />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

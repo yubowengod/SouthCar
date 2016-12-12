@@ -12,6 +12,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.god.southcar.R;
+import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_pic_selectall_by_gwgxxd_select.xianlu_identity_pic_selectall_by_gwgxxd_activity;
 import com.example.updated_pic_info.MainActivity_uploadpic;
 import com.example.picturewall.PhotoWallAdapter;
 
@@ -47,17 +48,26 @@ public class MyFragment2 extends Fragment {
     private int mImageThumbSpacing;
 
     private Button btn_uploadpic_info;
+    private Button btn_uploadpic_info_fengxi;
 
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
 
         btn_uploadpic_info=(Button)getActivity().findViewById(R.id.btn_uploadpic_info);
+        btn_uploadpic_info_fengxi=(Button)getActivity().findViewById(R.id.btn_uploadpic_info_fengxi);
 
         btn_uploadpic_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),MainActivity_uploadpic.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        btn_uploadpic_info_fengxi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),xianlu_identity_pic_selectall_by_gwgxxd_activity.class);
                 getActivity().startActivity(intent);
             }
         });

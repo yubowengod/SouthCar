@@ -16,6 +16,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
+import com.example.identity_pic.identity_num.one_door.identity_1_activity;
+import com.example.identity_pic.identity_num.three_door.identity_3_activity;
+import com.example.identity_pic.identity_num.two_door.identity_2_activity;
+import com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity;
 import com.example.upload.gap_upload_identity_result;
 import com.example.upload.gap_upload_identity_result_test;
 import com.example.upload.test_mul;
@@ -207,6 +211,19 @@ public class test_activity extends AppCompatActivity {
                 tvResult.append(path + "\n");
             }
         }
+    }
+
+
+    @Override
+    public void finish()
+    {
+
+        gap_upload_identity_result.return_true_flag.clear();
+        identity_1_activity.no1 = new String[4];
+        identity_2_activity.no2 = new String[4];
+        identity_3_activity.no3 = new String[3];
+        identity_deal_main_activity.nowadays = "";
+        super.finish();
     }
 }
 
