@@ -164,7 +164,7 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_activity extends AppCompatA
                                                         markVal = 0;
                                                     }
                                                     if (markVal > MAX_MARK) {
-                                                        Toast.makeText(getBaseContext(), "最大值为6_test", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getBaseContext(), "最大值为6_test阿斯顿", Toast.LENGTH_SHORT).show();
                                                         //选择界面！！！！！！！！！！！！
                                                         pop_chexiang.setText(String.valueOf(MAX_MARK));
                                                     }
