@@ -2,6 +2,7 @@ package com.example.oracle;
 
 import android.util.Log;
 
+import com.example.login_register_update_findinfomation.login.Login;
 import com.example.upload.Data_up;
 
 import org.ksoap2.SoapEnvelope;
@@ -21,11 +22,11 @@ import java.util.List;
 public class identity_selectall_from_pc_by_user_gw_gx_xd {
     public static List<String> List_result ;
 
-    public static void get_identity_selectall_from_pc_by_user_gw_gx_xd(String user, String gw, String gx, String xd){
+    public static void get_identity_selectall_from_pc_by_user_gw_gx_xd(String flag,String user,String xianlu,String chehao,String chexiang,String gw, String gx,String xd){
         try{
 //            public string[] select_all_from_identity_table(string user, string gw, string gx, string xd)
             String methodName = "select_all_from_identity_table";
-            getImageFromAndroid(methodName,user,gw,gx,xd);   //调用webservice
+            getImageFromAndroid(methodName,flag,user,xianlu,chehao,chexiang,gw,gx,xd);   //调用webservice
             Log.i("connectWebService", "start start start start start start start start");
         }
         catch(Exception e){
@@ -35,7 +36,7 @@ public class identity_selectall_from_pc_by_user_gw_gx_xd {
 /*
 
  */
-    public static String getImageFromAndroid(String methodName,String user, String gw, String gx, String xd){
+    public static String getImageFromAndroid(String methodName,String flag,String user,String xianlu,String chehao,String chexiang,String gw, String gx,String xd){
         Log.i("进入端口方法", "进入端口方法");
         // 创建HttpTransportSE传输对象
         HttpTransportSE ht = new HttpTransportSE(Data_up.getSERVICE_URL());
@@ -46,7 +47,12 @@ public class identity_selectall_from_pc_by_user_gw_gx_xd {
             // 实例化SoapObject对象
             SoapObject soapObject = new SoapObject(Data_up.getSERVICE_NAMESPACE(),methodName);
 
-            soapObject.addProperty("user",user);
+//            string flag,string user,string xianlu,string chehao,string chexiang,string gw, string gx,string xd
+            soapObject.addProperty("flag",flag);
+            soapObject.addProperty("user",Login.Login_username);
+            soapObject.addProperty("xianlu",xianlu);
+            soapObject.addProperty("chehao",chehao);
+            soapObject.addProperty("chexiang",chexiang);
             soapObject.addProperty("gw",gw);
             soapObject.addProperty("gx",gx);
             soapObject.addProperty("xd",xd);

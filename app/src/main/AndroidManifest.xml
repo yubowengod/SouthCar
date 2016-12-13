@@ -93,7 +93,13 @@
 
         </activity>
 
+        <activity android:name="com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_deal.xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity">
 
+        </activity>
+
+        <activity android:name="com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_pic_selectall_by_gwgxxd_uploadpic_activity">
+
+        </activity>
         <activity android:name="com.example.test_activity">
 
         </activity>

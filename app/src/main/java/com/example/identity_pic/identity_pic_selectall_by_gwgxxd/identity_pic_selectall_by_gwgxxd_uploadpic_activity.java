@@ -1,4 +1,4 @@
-package com.example.updated_pic_info;
+package com.example.identity_pic.identity_pic_selectall_by_gwgxxd;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,17 +9,17 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.example.god.southcar.R;
 import com.example.imagedemo.ItemEntity;
 import com.example.imagedemo.ListItemAdapter;
 import com.example.oracle.pic_info;
 import com.example.oracle.pic_info_name;
+import com.example.picturewall.PhotoWallAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import com.example.god.southcar.R;
-import com.example.picturewall.PhotoWallAdapter;
 
 
 /**
@@ -27,7 +27,7 @@ import com.example.picturewall.PhotoWallAdapter;
  *
  * @author guolin
  */
-public class MainActivity_uploadpic extends AppCompatActivity {
+public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppCompatActivity {
 
     private ExecutorService executorService;
     /**
@@ -57,7 +57,7 @@ public class MainActivity_uploadpic extends AppCompatActivity {
             super.handleMessage(msg);
             if (msg.what == 2017) {
                 //只要在主线程就可以处理ui
-                ((ImageView) MainActivity_uploadpic.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
+                ((ImageView) identity_pic_selectall_by_gwgxxd_uploadpic_activity.this.findViewById(msg.arg1)).setImageBitmap((Bitmap) msg.obj);
             }
         }
     };
@@ -119,7 +119,7 @@ public class MainActivity_uploadpic extends AppCompatActivity {
                                 itemEntities.add(entity_oracle[i]);
 
                             }
-                            listview.setAdapter(new ListItemAdapter(MainActivity_uploadpic.this, itemEntities));
+                            listview.setAdapter(new ListItemAdapter(identity_pic_selectall_by_gwgxxd_uploadpic_activity.this, itemEntities));
                         }
                     });
                 }

@@ -79,7 +79,7 @@ public class identity_3_result_main_activity extends AppCompatActivity {
                 int ss = cld.get(Calendar.SECOND);
                 int MI = cld.get(Calendar.MILLISECOND);
 //                2011-12-15 10:40:10.345
-                identity_deal_main_activity.nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss+"."+MI;
+                identity_deal_main_activity.nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss;
 
                 final ProgressDialog dialog = ProgressDialog.show(identity_3_result_main_activity.this, "数据上传中", "请稍候...", true);
 

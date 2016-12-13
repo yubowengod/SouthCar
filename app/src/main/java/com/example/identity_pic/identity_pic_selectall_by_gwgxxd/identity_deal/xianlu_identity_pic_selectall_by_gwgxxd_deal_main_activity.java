@@ -26,6 +26,7 @@ import com.example.crm_main.crm_main_grid_adapter;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_pic_main_java;
+import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_pic_selectall_by_gwgxxd_uploadpic_activity;
 import com.example.imagedemo.ImagePagerActivity;
 import com.example.picturewall.PhotoWallAdapter;
 import com.example.upload.Data_up;
@@ -101,7 +102,7 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
         }
     };
 
-    private TextView sp_text;
+
 
     private Spinner provinceSpinner = null;  //省级（省、直辖市）
     private Spinner citySpinner = null;     //地级市
@@ -114,7 +115,7 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
     static int cityPosition = 0;
     static int countryPosition = 0;
 
-    private String province_file;
+
     private TextView txt_crm_home;
     private TextView txt_crm_reset_xianlu;
     private TextView txt_crm_reset_yemian;
@@ -123,15 +124,15 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
     private TextView text_chexing;
     private TextView text_chehao;
     private TextView text_zaizhuangxianlu;
-//    private TextView text_zaizhuangxianlu_num;
 
-    private ImageView crm_main_activity_imageview;
+    /*
+    test
+     */
+    private TextView test_gwgxxd_deal_main;
+    public static String[] xianlu_chehao_gwgxxd = new String[5];
 
-    String str;
-    String chetileibie;
-    private int chetileibie_num;
-    String chetileibie1;
-    private int chetileibie1_num;
+
+
 
     private void setSelected(){
         txt_crm_home.setSelected(false);
@@ -140,19 +141,7 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
         txt_crm_next.setSelected(false);
     }
 
-    /**
-     * 用于展示照片墙的GridView
-     */
-    private GridView mPhotoWall;
-    private ListView mPhotolist;
 
-    /**
-     * GridView的适配器
-     */
-    private PhotoWallAdapter mAdapter;
-
-    private int mImageThumbSize;
-    private int mImageThumbSpacing;
 
     MainActivity_slider mainActivity_login;
 
@@ -166,25 +155,18 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
     private String xianlu_up_zaizhuangxianlu_num ;
     public static String identity_deal_main_activity_gongwei_gongxu_xiangdian = "";
     public static String identity_deal_main_activity_xianlu_chehao_chexiang = "";
-    public static String nowadays = "";
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.identity_deal_main);
+        setContentView(R.layout.xianlu_identity_pic_selectall_by_gwgxxd_deal_main);
 
         btn_crm_main = (Button) findViewById(R.id.btn_crm_main);
         btn_crm_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                Date dt = new Date();
-//                Long time = dt.getTime();
-//
-//                new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date());
-
-
-
-                Intent intent = new Intent(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this, identity_pic_main_java.class);
+                Intent intent = new Intent(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this, identity_pic_selectall_by_gwgxxd_uploadpic_activity.class);
 
                 identity_deal_main_activity_gongwei_gongxu_xiangdian = mainActivity_login.gongwei[provincePosition]+","+mainActivity_login.gongxu[provincePosition][cityPosition]+","+mainActivity_login.xiangdian[provincePosition][cityPosition][countryPosition];
 
@@ -194,6 +176,7 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
         provinceSpinner = (Spinner)findViewById(R.id.spinner_gongwei);
         citySpinner = (Spinner)findViewById(R.id.spinner_gongxu);
         countySpinner = (Spinner)findViewById(R.id.spinner_xiangdian);
+        test_gwgxxd_deal_main = (TextView)findViewById(R.id.test_gwgxxd_deal_main);
 
         Bundle bundle = this.getIntent().getExtras();
 
@@ -207,26 +190,16 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
         text_chehao = (TextView) findViewById(R.id.text_chehao);
         text_chexing = (TextView) findViewById(R.id.text_chexing);
         text_zaizhuangxianlu = (TextView) findViewById(R.id.crm_main_zaizhuangxianlu);
-//        text_zaizhuangxianlu_num = (TextView) findViewById(R.id.crm_main_zaizhuangxianlu_num);
-//        crm_main_activity_imageview = (ImageView) findViewById(R.id.crm_main_activity_imageview);
+
 
         text_chehao.setText(xianlu_up_chehao);
         text_chexing.setText(xianlu_up_chexing);
         text_zaizhuangxianlu.setText(xianlu_up_zaizhuangxianlu);
-//        text_zaizhuangxianlu_num.setText(xianlu_up_zaizhuangxianlu_num);
 
-//        ini_spinner();
-
-        mImageThumbSize = getResources().getDimensionPixelSize(
-                R.dimen.image_thumbnail_size);
-        mImageThumbSpacing = getResources().getDimensionPixelSize(
-                R.dimen.image_thumbnail_spacing);
-        mPhotoWall = (GridView) findViewById(R.id.crm_main_gridview);
-
-//        mPhotolist = (ListView) findViewById(R.id.crm_main_listview);
         setSpinner();
 
-        sp_text = (TextView) findViewById(R.id.sp_text);
+        xianlu_chehao_gwgxxd[0] = xianlu_up_zaizhuangxianlu;
+        xianlu_chehao_gwgxxd[1] = xianlu_up_chehao;
 
         txt_crm_home = (TextView) findViewById(R.id.txt_crm_home);
         txt_crm_reset_xianlu = (TextView) findViewById(R.id.txt_crm_reset_xianlu);
@@ -290,14 +263,17 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
         SpinnerAdapter provinceAdapter=new SpinnerAdapter(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this,android.R.layout.simple_spinner_item,mainActivity_login.gongwei);
         provinceSpinner.setAdapter(provinceAdapter);
         provinceSpinner.setSelection(0,true);  //设置默认选中项，此处为默认选中第4个值
+        xianlu_chehao_gwgxxd[2] = mainActivity_login.gongwei[0];
 
         SpinnerAdapter cityAdapter=new SpinnerAdapter(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this,android.R.layout.simple_spinner_item,mainActivity_login.gongxu[0]);
         citySpinner.setAdapter(cityAdapter);
         citySpinner.setSelection(0,true);  //默认选中第0个
+        xianlu_chehao_gwgxxd[3] = mainActivity_login.gongxu[0][0];
 
         final SpinnerAdapter countyAdapter=new SpinnerAdapter(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this,android.R.layout.simple_spinner_item,mainActivity_login.xiangdian[0][0]);
         countySpinner.setAdapter(countyAdapter);
         countySpinner.setSelection(0, true);
+        xianlu_chehao_gwgxxd[4] = mainActivity_login.xiangdian[0][0][0];
 
         provinceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -310,6 +286,8 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
                 //将地级适配器的值改变为city[position]中的值
                 SpinnerAdapter cityAdapter=new SpinnerAdapter(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this,android.R.layout.simple_spinner_item,
                         mainActivity_login.gongxu[position]);
+
+                xianlu_chehao_gwgxxd[2] = mainActivity_login.gongwei[position];
 
                 // 设置二级下拉列表的选项内容适配器
                 citySpinner.setAdapter(cityAdapter);
@@ -333,6 +311,7 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
                 SpinnerAdapter countyAdapter=new SpinnerAdapter(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this,android.R.layout.simple_spinner_item,
                         mainActivity_login.xiangdian[provincePosition][position]);
 
+                xianlu_chehao_gwgxxd[3] = mainActivity_login.gongxu[provincePosition][position];
                 cityPosition = position;
                 countySpinner.setAdapter(countyAdapter);
             }
@@ -348,35 +327,14 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 countryPosition = position;
+                xianlu_chehao_gwgxxd[4] = mainActivity_login.xiangdian[provincePosition][cityPosition][position];
 
-                sp_text.setText(MainActivity_slider.jianceshuoming[provincePosition][cityPosition][position]);
+//                for (String path : xianlu_chehao_gwgxxd) {
+//                    test_gwgxxd_deal_main.append(path + "\n");
+//                }
 
-                final ArrayList<String> imageUrls = new ArrayList<String>();
+                test_gwgxxd_deal_main.setText(xianlu_chehao_gwgxxd[0]+","+xianlu_chehao_gwgxxd[1]+","+xianlu_chehao_gwgxxd[2]+","+xianlu_chehao_gwgxxd[3]+","+xianlu_chehao_gwgxxd[4]);
 
-                String [] split_result = MainActivity_slider.picinfo[provincePosition][cityPosition][position].split(";");
-
-                for (int i = 0; i<split_result.length;i++){
-                    split_result[i] = Data_up.getSERVICE_URL_IP_PORT_local_file()+"example_picture/"+mainActivity_login.gongwei[provincePosition]+"/"+split_result[i]+".jpg";
-
-                    imageUrls.add(split_result[i]);
-                }
-
-                mainHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                       mPhotoWall.setAdapter(new crm_main_grid_adapter(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this,imageUrls));
-
-                        // 点击回帖九宫格，查看大图
-                        mPhotoWall.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                // TODO Auto-generated method stub
-                                imageBrower(position, imageUrls);
-                            }
-                        });
-                    }
-                });
             }
 
             @Override
@@ -384,19 +342,5 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
 
             }
         });
-    }
-
-    /**
-     * 打开图片查看器
-     *
-     * @param position
-     * @param urls2
-     */
-    protected void imageBrower(int position, ArrayList<String> urls2) {
-        Intent intent = new Intent(xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.this, ImagePagerActivity.class);
-        // 图片url,为了演示这里使用常量，一般从数据库中或网络中获取
-        intent.putExtra(ImagePagerActivity.EXTRA_IMAGE_URLS, urls2);
-        intent.putExtra(ImagePagerActivity.EXTRA_IMAGE_INDEX, position);
-        startActivity(intent);
     }
 }

@@ -80,7 +80,7 @@ public class gap_upload_identity_result {
             soapObject.addProperty("fengxileibie", identity_pic_main_java.identity_pic_main_java_fengxileibie);
             soapObject.addProperty("gap_flag",gap_flag);
             soapObject.addProperty("bytestr",uploadBuffer);
-            soapObject.addProperty("time",identity_deal_main_activity.nowadays);
+            soapObject.addProperty("updatetime",identity_deal_main_activity.nowadays);
 
             envelope.bodyOut = soapObject;
             // 设置与.NET提供的webservice保持较好的兼容性
