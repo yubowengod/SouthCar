@@ -197,7 +197,7 @@ public class xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity extends 
         text_zaizhuangxianlu.setText(xianlu_up_zaizhuangxianlu);
 
         setSpinner();
-
+        test_gwgxxd_deal_main.setText("赶紧选！！");
         xianlu_chehao_gwgxxd[0] = xianlu_up_zaizhuangxianlu;
         xianlu_chehao_gwgxxd[1] = xianlu_up_chehao;
 

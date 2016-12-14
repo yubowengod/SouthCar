@@ -10,10 +10,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.god.southcar.R;
+import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_deal.xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity;
 import com.example.imagedemo.ItemEntity;
 import com.example.imagedemo.ListItemAdapter;
-import com.example.oracle.pic_info;
-import com.example.oracle.pic_info_name;
+import com.example.oracle.identity_selectall_from_pc_by_user_gw_gx_xd_info_name;
+import com.example.oracle.identity_selectall_from_pc_by_user_gw_gx_xd_info;
 import com.example.picturewall.PhotoWallAdapter;
 
 import java.util.ArrayList;
@@ -68,34 +69,56 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
         executorService.submit(new Runnable() {
             @Override
             public void run() {
-                pic_info_name.getImageromSdk("3");
 
-                final String [] test_name = new String[pic_info_name.getList_result().size()];
+                identity_selectall_from_pc_by_user_gw_gx_xd_info_name.get_identity_selectall_from_pc_by_user_gw_gx_xd(
+                        "updatetime",
+                        "updatetime",
+                        "heihei",
+                        xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[0],
+                        xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[1],
+                        xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[1],
+                        xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[2],
+                        xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[3],
+                        xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[4]
+                );
 
-                for (int i = 0 ;i < pic_info_name.getList_result().size(); i++)
+
+
+                final String [] updatetime = new String[identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size()];
+
+                for (int i = 0 ;i < identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size(); i++)
                 {
-                    test_name[i] = pic_info_name.getList_result().get(i);
+                    updatetime[i] = identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().get(i);
                 }
 
-                final String [][] test_name_picinfo = new String[pic_info_name.getList_result().size()][];
+                final String [][] updatetime_picinfo = new String[identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size()][];
 
-                for (int i = 0 ;i < pic_info_name.getList_result().size(); i++)
+                for (int i = 0 ;i < identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size(); i++)
                 {
-                    pic_info.getImageromSdk("2",test_name[i]);
-
+                    identity_selectall_from_pc_by_user_gw_gx_xd_info.get_identity_selectall_from_pc_by_user_gw_gx_xd(
+                            "phonetupianlujing",
+                            updatetime[i],
+                            "heihei",
+                            xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[0],
+                            xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[1],
+                            xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[1],
+                            xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[2],
+                            xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[3],
+                            xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity.xianlu_chehao_gwgxxd[4]
+                    );
                     List<String> picinfo = new ArrayList<String>();
 
-                    test_name_picinfo[i] = new String[pic_info.getList_result().size()];
+                    updatetime_picinfo[i] = new String[identity_selectall_from_pc_by_user_gw_gx_xd_info.getList_result().size()];
 
-                    for (int j=0;j<pic_info.getList_result().size();j++)
+                    for (int j=0;j<identity_selectall_from_pc_by_user_gw_gx_xd_info.getList_result().size();j++)
                     {
-                        test_name_picinfo[i][j] = pic_info.getList_result().get(j);
+                        updatetime_picinfo[i][j] = identity_selectall_from_pc_by_user_gw_gx_xd_info.getList_result().get(j);
                     }
                 }
 
-                final int ww = pic_info_name.getList_result().size();
+                final int ww = identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size();
 
-                final int www = pic_info_name.getList_result().size();
+                final int www = identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size();
 
                 try {
                     mainHandler.post(new Runnable() {
@@ -110,11 +133,11 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
                             for (int i =0;i<ww;i++)
                             {
                                 ArrayList<String> urls_oracle = new ArrayList<String>();
-                                for (int j=0;j<test_name_picinfo[i].length;j++)
+                                for (int j=0;j<updatetime_picinfo[i].length;j++)
                                 {
-                                    urls_oracle.add(test_name_picinfo[i][j]);
+                                    urls_oracle.add(updatetime_picinfo[i][j]);
                                 }
-                                entity_oracle[i] = new ItemEntity(test_name_picinfo[i][0],test_name[i],null,urls_oracle);
+                                entity_oracle[i] = new ItemEntity(updatetime_picinfo[i][0],updatetime[i],null,urls_oracle);
 
                                 itemEntities.add(entity_oracle[i]);
 
@@ -138,47 +161,5 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
         executorService = Executors.newFixedThreadPool(5);
 
         test();
-
-//        mImageThumbSize = getResources().getDimensionPixelSize(
-//                R.dimen.image_thumbnail_size);
-//        mImageThumbSpacing = getResources().getDimensionPixelSize(
-//                R.dimen.image_thumbnail_spacing);
-//        mPhotoWall = (GridView) findViewById(R.id.photo_wall);
-//        mAdapter = new PhotoWallAdapter(this, 0, Images.imageThumbUrls,
-//                mPhotoWall);
-//        mPhotoWall.setAdapter(mAdapter);
-//        mPhotoWall.getViewTreeObserver().addOnGlobalLayoutListener(
-//                new ViewTreeObserver.OnGlobalLayoutListener() {
-//
-//                    @Override
-//                    public void onGlobalLayout() {
-//                        final int numColumns = (int) Math.floor(mPhotoWall
-//                                .getWidth()
-//                                / (mImageThumbSize + mImageThumbSpacing));
-//                        if (numColumns > 0) {
-//                            int columnWidth = (mPhotoWall.getWidth() / numColumns)
-//                                    - mImageThumbSpacing;
-//                            mAdapter.setItemHeight(columnWidth);
-//                            mPhotoWall.getViewTreeObserver()
-//                                    .removeGlobalOnLayoutListener(this);
-//                        }
-//                    }
-//                });
     }
-
-
-
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        mAdapter.fluchCache();
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        // 退出程序时结束所有的下载任务
-//        mAdapter.cancelAllTasks();
-//    }
-
 }

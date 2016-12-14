@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by GOD on 2016/9/18.
  */
-public class identity_selectall_from_pc_by_user_gw_gx_xd {
+public class identity_selectall_from_pc_by_user_gw_gx_xd_info_name {
 
 
 
@@ -30,7 +30,7 @@ public class identity_selectall_from_pc_by_user_gw_gx_xd {
 //            public string[] select_all_from_identity_table(string user, string gw, string gx, string xd)
             String methodName = "select_all_from_identity_table";
             getImageFromAndroid(methodName, flag, updatetime, user, xianlu, chehao, chexiang, gw, gx, xd);   //调用webservice
-            Log.i("connectWebService", "1111111111111111111111111111111111111111111111111111111111111111111111");
+            Log.i("connectWebService", "111111111111111111111111111111111");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class identity_selectall_from_pc_by_user_gw_gx_xd {
 
      */
     public static String getImageFromAndroid(String methodName, String flag, String updatetime, String user, String xianlu, String chehao, String chexiang, String gw, String gx, String xd) {
-        Log.i("进入端口方法", "进入端口方法11111111111111111111111111111111111111");
+        Log.i("进入端口方法", "进入端口方法1111111111111111");
         // 创建HttpTransportSE传输对象
         HttpTransportSE ht = new HttpTransportSE(Data_up.getSERVICE_URL());
         try {
