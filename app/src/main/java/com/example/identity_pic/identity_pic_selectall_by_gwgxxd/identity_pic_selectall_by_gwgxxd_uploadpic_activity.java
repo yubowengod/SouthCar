@@ -5,13 +5,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_deal.xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity;
 import com.example.imagedemo.ItemEntity;
@@ -19,7 +15,6 @@ import com.example.imagedemo.ListItemAdapter;
 import com.example.oracle.identity_selectall_from_pc_by_user_gw_gx_xd_info_name;
 import com.example.oracle.identity_selectall_from_pc_by_user_gw_gx_xd_info;
 import com.example.picturewall.PhotoWallAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
