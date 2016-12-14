@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_deal.xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity;
@@ -143,8 +146,11 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
 
                             }
                             listview.setAdapter(new ListItemAdapter(identity_pic_selectall_by_gwgxxd_uploadpic_activity.this, itemEntities));
+
+
                         }
                     });
+
                 }
                 catch (Exception e) {
                     throw new RuntimeException(e);
@@ -161,5 +167,7 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
         executorService = Executors.newFixedThreadPool(5);
 
         test();
+
+
     }
 }
