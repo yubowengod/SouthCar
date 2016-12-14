@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.bumptech.glide.Glide;
 import com.example.god.southcar.R;
+import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_pic_selectall_by_gwgxxd_uploadpic_activity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -17,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 /**
  * 首页ListView的数据适配器
@@ -28,7 +30,6 @@ public class ListItemAdapter extends BaseAdapter {
 
 	private Context mContext;
 	private ArrayList<ItemEntity> items;
-
 	public ListItemAdapter(Context ctx, ArrayList<ItemEntity> items) {
 		this.mContext = ctx;
 		this.items = items;
@@ -50,7 +51,7 @@ public class ListItemAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {
 			holder = new ViewHolder();
@@ -69,6 +70,16 @@ public class ListItemAdapter extends BaseAdapter {
 		// 使用ImageLoader加载网络图片
 
 		Glide.with(mContext).load(itemEntity.getAvatar()).fitCenter().skipMemoryCache(true).into(holder.iv_avatar);
+
+
+
+		holder.iv_avatar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Toast.makeText(mContext, ""+position, Toast.LENGTH_SHORT).show();
+			}
+		});
+
 //		DisplayImageOptions options = new DisplayImageOptions.Builder()//
 //				.showImageOnLoading(R.mipmap.ic_launcher) // 加载中显示的默认图片
 //				.showImageOnFail(R.mipmap.ic_launcher) // 设置加载失败的默认图片

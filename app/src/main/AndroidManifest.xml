@@ -100,6 +100,10 @@
         <activity android:name="com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_pic_selectall_by_gwgxxd_uploadpic_activity">
 
         </activity>
+
+        <activity android:name="com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_num_result_main_returnfrompc_by_gwgxxd_activity">
+
+        </activity>
         <activity android:name="com.example.test_activity">
 
         </activity>

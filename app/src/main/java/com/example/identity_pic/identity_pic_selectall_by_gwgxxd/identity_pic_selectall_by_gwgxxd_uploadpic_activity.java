@@ -1,13 +1,18 @@
 package com.example.identity_pic.identity_pic_selectall_by_gwgxxd;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_deal.xianlu_identity_pic_selectall_by_gwgxxd_deal_main_activity;
 import com.example.imagedemo.ItemEntity;
@@ -49,6 +54,7 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
     /** ListView对象 */
     private ListView listview;
 
+
     private Handler mainHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -60,7 +66,8 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
             }
         }
     };
-
+    public static String updatetime_send;
+    public static String [] updatetime = new String[9];
     private void test()
     {
 
@@ -82,7 +89,7 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
 
 
 
-                final String [] updatetime = new String[identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size()];
+                updatetime = new String[identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size()];
 
                 for (int i = 0 ;i < identity_selectall_from_pc_by_user_gw_gx_xd_info_name.getList_result().size(); i++)
                 {
@@ -122,7 +129,7 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
                     mainHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            listview = (ListView) findViewById(R.id.listview);
+
 
                             itemEntities = new ArrayList<ItemEntity>();
 
@@ -160,9 +167,18 @@ public class identity_pic_selectall_by_gwgxxd_uploadpic_activity extends AppComp
         setContentView(R.layout.activity_main_uploadpic);
 
         executorService = Executors.newFixedThreadPool(5);
-
+        listview = (ListView) findViewById(R.id.listview);
         test();
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(identity_pic_selectall_by_gwgxxd_uploadpic_activity.this, updatetime[i], Toast.LENGTH_SHORT).show();
+                updatetime_send = updatetime[i];
+                Intent intent = new Intent(identity_pic_selectall_by_gwgxxd_uploadpic_activity.this,identity_num_result_main_returnfrompc_by_gwgxxd_activity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
