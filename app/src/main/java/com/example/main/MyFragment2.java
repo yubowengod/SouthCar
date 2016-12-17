@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_pic_selectall_by_gwgxxd_select.xianlu_identity_pic_selectall_by_gwgxxd_activity;
+import com.example.takepictrue_save_FileUploadImage_sql_from_pc.main.takepictrue_save_FileUploadImage_selectall_by_gwgxxd_activity;
+import com.example.takepictrue_save_FileUploadImage_sql_from_pc.main_deal.takepictrue_save_FileUploadImage_selectall_by_gwgxxd_deal_main_activity;
 import com.example.updated_pic_info.MainActivity_uploadpic;
 import com.example.picturewall.PhotoWallAdapter;
 
@@ -60,7 +62,7 @@ public class MyFragment2 extends Fragment {
         btn_uploadpic_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),MainActivity_uploadpic.class);
+                Intent intent = new Intent(getActivity(),takepictrue_save_FileUploadImage_selectall_by_gwgxxd_activity.class);
                 getActivity().startActivity(intent);
             }
         });
