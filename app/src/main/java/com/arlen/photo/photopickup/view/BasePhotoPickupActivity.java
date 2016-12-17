@@ -151,7 +151,7 @@ public class BasePhotoPickupActivity extends Activity {
 
         // 照片墙
         mPhotoThumbnailGrid = (RecyclerView) findViewById(R.id.photo_thumbnail_list_view);
-        mPhotoThumbnailGrid.setLayoutManager(new GridLayoutManager(this, 4));//这里用线性宫格显示 类似于grid view
+        mPhotoThumbnailGrid.setLayoutManager(new GridLayoutManager(this, 3));//这里用线性宫格显示 类似于grid view
         mItemAdapter = new ItemAdapter();
         mPhotoThumbnailGrid.setAdapter(mItemAdapter);
 
