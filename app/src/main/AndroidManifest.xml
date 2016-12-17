@@ -112,6 +112,19 @@
         <activity android:name="com.example.takepictrue_save_FileUploadImage_sql_from_pc.main_deal.takepictrue_save_FileUploadImage_selectall_by_gwgxxd_deal_main_activity">
 
         </activity>
+
+
+        <activity android:name="com.example.takepictrue_save_FileUploadImage_sql_from_pc.main_sql_result.takepictrue_save_FileUploadImage_selectall_by_gwgxxd_uploadpic_activity">
+
+        </activity>
+
+
+
+
+
+
+
+
         <activity android:name="com.example.test_activity">
 
         </activity>

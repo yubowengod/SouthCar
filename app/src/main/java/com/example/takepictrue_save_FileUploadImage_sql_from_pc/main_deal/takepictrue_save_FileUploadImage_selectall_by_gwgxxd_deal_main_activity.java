@@ -23,7 +23,7 @@ import com.arlen.photo.ui.MainActivity;
 import com.example.crm_main.crm_main_grid_ItemEntity;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
-import com.example.takepictrue_save_FileUploadImage_sql_from_pc.main.takepictrue_save_FileUploadImage_selectall_by_gwgxxd_activity;
+import com.example.takepictrue_save_FileUploadImage_sql_from_pc.main_sql_result.takepictrue_save_FileUploadImage_selectall_by_gwgxxd_uploadpic_activity;
 import com.example.xianlu_main.xianlu_main_activity;
 
 import java.util.ArrayList;
@@ -160,7 +160,7 @@ public class takepictrue_save_FileUploadImage_selectall_by_gwgxxd_deal_main_acti
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(takepictrue_save_FileUploadImage_selectall_by_gwgxxd_deal_main_activity.this, takepictrue_save_FileUploadImage_selectall_by_gwgxxd_activity.class);
+                Intent intent = new Intent(takepictrue_save_FileUploadImage_selectall_by_gwgxxd_deal_main_activity.this, takepictrue_save_FileUploadImage_selectall_by_gwgxxd_uploadpic_activity.class);
 
                 identity_deal_main_activity_gongwei_gongxu_xiangdian = mainActivity_login.gongwei[provincePosition]+","+mainActivity_login.gongxu[provincePosition][cityPosition]+","+mainActivity_login.xiangdian[provincePosition][cityPosition][countryPosition];
                 Toast.makeText(takepictrue_save_FileUploadImage_selectall_by_gwgxxd_deal_main_activity.this, "test", Toast.LENGTH_SHORT).show();
