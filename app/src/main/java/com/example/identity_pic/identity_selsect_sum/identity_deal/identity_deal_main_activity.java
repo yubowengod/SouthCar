@@ -25,16 +25,13 @@ import com.example.crm_main.crm_main_grid_ItemEntity;
 import com.example.crm_main.crm_main_grid_adapter;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_pic_main_java;
+import com.example.identity_pic.identity_pic_main.identity_pic_main_java;
 import com.example.imagedemo.ImagePagerActivity;
 import com.example.picturewall.PhotoWallAdapter;
 import com.example.upload.Data_up;
 import com.example.xianlu_main.xianlu_main_activity;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by GOD on 2016/9/21.

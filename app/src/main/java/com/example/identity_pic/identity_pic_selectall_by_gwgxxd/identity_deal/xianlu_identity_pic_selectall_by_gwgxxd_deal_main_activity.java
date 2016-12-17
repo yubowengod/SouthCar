@@ -14,22 +14,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.arlen.photo.ui.MainActivity;
 import com.example.crm_main.crm_main_grid_ItemEntity;
-import com.example.crm_main.crm_main_grid_adapter;
 import com.example.god.southcar.MainActivity_slider;
 import com.example.god.southcar.R;
-import com.example.identity_pic.identity_pic_main_java;
 import com.example.identity_pic.identity_pic_selectall_by_gwgxxd.identity_pic_selectall_by_gwgxxd_uploadpic_activity;
-import com.example.imagedemo.ImagePagerActivity;
-import com.example.picturewall.PhotoWallAdapter;
-import com.example.upload.Data_up;
 import com.example.xianlu_main.xianlu_main_activity;
 
 import java.util.ArrayList;

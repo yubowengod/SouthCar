@@ -102,11 +102,6 @@ public class identity_num_result_main_returnfrompc_by_gwgxxd_activity extends Ap
             }
         });
 
-
-
-
-
-
         identity_num_result_main_returnfrompc_btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

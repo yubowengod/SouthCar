@@ -31,6 +31,7 @@ public class identity_3_activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(identity_3_activity.this,identity_3_listview_main_activity1.class);
                 startActivity(intent);
+                finish();
             }
         });
 

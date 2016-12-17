@@ -1,10 +1,12 @@
 package com.example.identity_pic.identity_num.one_door.identity_num_result_main;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -70,51 +72,67 @@ public class identity_num_result_main_activity extends AppCompatActivity {
         identity_num_result_main_btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(identity_num_result_main_activity.this, "上传图片!", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(identity_num_result_main_activity.this)
+                        .setTitle("确认")
+                        .setMessage("确定上传图片吗？")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(identity_num_result_main_activity.this, "上传图片!", Toast.LENGTH_SHORT).show();
 //                上传
 //               1、2、3、4
-                Calendar cld = Calendar.getInstance();
-                int YY = cld.get(Calendar.YEAR);
-                int MM = cld.get(Calendar.MONTH)+1;
-                int DD = cld.get(Calendar.DATE);
-                int HH = cld.get(Calendar.HOUR_OF_DAY);
-                int mm = cld.get(Calendar.MINUTE);
-                int ss = cld.get(Calendar.SECOND);
-                int MI = cld.get(Calendar.MILLISECOND);
+                                Calendar cld = Calendar.getInstance();
+                                int YY = cld.get(Calendar.YEAR);
+                                int MM = cld.get(Calendar.MONTH)+1;
+                                int DD = cld.get(Calendar.DATE);
+                                int HH = cld.get(Calendar.HOUR_OF_DAY);
+                                int mm = cld.get(Calendar.MINUTE);
+                                int ss = cld.get(Calendar.SECOND);
+                                int MI = cld.get(Calendar.MILLISECOND);
 //                2011-12-15 10:40:10.345
-                identity_deal_main_activity.nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss;
+                                identity_deal_main_activity.nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss;
 
-                final ProgressDialog dialog = ProgressDialog.show(identity_num_result_main_activity.this, "数据上传中", "请稍候...", true);
+                                final ProgressDialog dialog = ProgressDialog.show(identity_num_result_main_activity.this, "数据上传中", "请稍候...", true);
 
-                for(int i=0;i<4;i++){
-                    no1_weizhi_num.add(identity_1_activity.no1_weizhi_flag[i]);
-                    identity_num_result_main_activity_no1.add(identity_1_activity.no1[i]);
-                }
-
-                executorService.execute(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        gap_upload_identity_result.getImageromSdk(no1_weizhi_num,identity_num_result_main_activity_no1);
-
-                        mainHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (gap_upload_identity_result.return_true_flag.size() == 4)
-                                {
-                                    dialog.dismiss();
-                                    String result = "";
-                                    for (int i=0;i<4;i++)
-                                    {
-                                        result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
-                                    }
-                                    identity_num_result_main_textview.setText(result);
-                                    identity_num_result_main_btn_view_result.setVisibility(View.VISIBLE);
+                                for(int j=0;j<4;j++){
+                                    no1_weizhi_num.add(identity_1_activity.no1_weizhi_flag[j]);
+                                    identity_num_result_main_activity_no1.add(identity_1_activity.no1[j]);
                                 }
+
+                                executorService.execute(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        gap_upload_identity_result.getImageromSdk(no1_weizhi_num,identity_num_result_main_activity_no1);
+
+                                        mainHandler.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                if (gap_upload_identity_result.return_true_flag.size() == 4)
+                                                {
+                                                    dialog.dismiss();
+                                                    String result = "";
+                                                    for (int i=0;i<4;i++)
+                                                    {
+                                                        result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
+                                                    }
+                                                    identity_num_result_main_textview.setText(result);
+                                                    identity_num_result_main_btn_view_result.setVisibility(View.VISIBLE);
+                                                }
+                                            }
+                                        });
+                                    }
+                                });
                             }
-                        });
-                    }
-                });
+                        })
+                        .setNegativeButton("否", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .show();
+
             }
 
         });

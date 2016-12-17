@@ -109,9 +109,6 @@ public class crm_main_activity extends AppCompatActivity {
     ArrayAdapter<String> gongweiAdapter = null;  //省级适配器
     ArrayAdapter<String> cityAdapter = null;    //地级适配器
     ArrayAdapter<String> countyAdapter = null;    //县级适配器
-    static int provincePosition = 0;
-    static int cityPosition = 0;
-    static int countryPosition = 0;
 
     private String province_file;
     private TextView txt_crm_home;
@@ -159,6 +156,19 @@ public class crm_main_activity extends AppCompatActivity {
 
     private Button btn_crm_main;
 
+    public static int provincePosition = 0;
+    public static int cityPosition = 0;
+    public static int countryPosition = 0;
+
+    public static String xianlu_up_gongwei ;
+    public static String xianlu_up_gongxu ;
+    public static String xianlu_up_xiangdian ;
+    public static String xianlu_up_chehao ;
+    public static String xianlu_up_chexing ;
+    public static String xianlu_up_zaizhuangxianlu ;
+    public static String xianlu_up_zaizhuangxianlu_num;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crm_main);
@@ -167,6 +177,12 @@ public class crm_main_activity extends AppCompatActivity {
         btn_crm_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                xianlu_up_gongwei = mainActivity_login.gongwei[provincePosition];
+                xianlu_up_gongxu = mainActivity_login.gongxu[provincePosition][cityPosition];
+                xianlu_up_xiangdian = mainActivity_login.xiangdian[provincePosition][cityPosition][countryPosition];
+
                 Intent intent = new Intent(crm_main_activity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -177,10 +193,10 @@ public class crm_main_activity extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
 
-        String xianlu_up_chehao = bundle.getString("chehao");
-        String xianlu_up_chexing = bundle.getString("chexing");
-        String xianlu_up_zaizhuangxianlu = bundle.getString("zaizhuangxianlu");
-        String xianlu_up_zaizhuangxianlu_num = bundle.getString("zaizhuangxianlu_num");
+        xianlu_up_chehao = bundle.getString("chehao");
+        xianlu_up_chexing = bundle.getString("chexing");
+        xianlu_up_zaizhuangxianlu = bundle.getString("zaizhuangxianlu");
+        xianlu_up_zaizhuangxianlu_num = bundle.getString("zaizhuangxianlu_num");
 
         text_chehao = (TextView) findViewById(R.id.text_chehao);
         text_chexing = (TextView) findViewById(R.id.text_chexing);
@@ -323,6 +339,7 @@ public class crm_main_activity extends AppCompatActivity {
         countySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                countryPosition = position;
 
                 sp_text.setText(MainActivity_slider.jianceshuoming[provincePosition][cityPosition][position]);
 

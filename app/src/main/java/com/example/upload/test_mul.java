@@ -7,6 +7,8 @@ import android.widget.ListView;
 
 import com.arlen.photo.photopickup.presenter.PhotoPresenter;
 import com.arlen.photo.ui.MainActivity;
+import com.example.login_register_update_findinfomation.login.Login;
+import com.example.main.crm_main_activity;
 
 import org.kobjects.base64.Base64;
 import org.ksoap2.SoapEnvelope;
@@ -28,32 +30,10 @@ import java.util.ArrayList;
 
 public class test_mul {
 
-    private static SoapObject request;
-
-    private Button upload;
-    private Button upload1;
-
-    private ImageView image;
     private static final String SERVICE_NAMESPACE ="http://tempuri.org/"; //http://tempuri.org/
-    //    public String SERVICE_NAMESPACE = "http://tempuri.org/";
-    //    private static String SERVICE_URL = "http://192.168.1.102:8011/Service1.asmx";
-    private String methodName = "FileUploadImage ";   //设置方法名  FileUploadImage
-    private SoapObject result;
-    private ListView listView;
-    private static MainActivity activity;
-    static ArrayList<String> List_result=new ArrayList<>();
-    String insetinfo_result;
 
 
-    private Handler handler; //设置消息，通知主线程进行相关操作
-
-    String Cname=null;  //webservice 需要的参数
-    String Cnum=null;
-    String FileUploadImage_str=null;
-
-//    public static String return_true_flag;
     public static ArrayList<String> return_true_flag = new ArrayList<>();
-    public static PhotoPresenter mPhotoPresenter1;
 
 
 
@@ -62,8 +42,6 @@ public class test_mul {
 
 
         Log.i("进入获取图片方法", "进入获取图片方法");
-
-        String[] strArray=null;
 
         try{
 
@@ -85,7 +63,7 @@ public class test_mul {
 
                 Log.i("connectWebService", "start");
                 fis.close();
-//                System.gc();
+
             }
 
         }catch(Exception e){
@@ -95,7 +73,6 @@ public class test_mul {
 
     public static String getImageFromAndroid(String methodName,String arg1, String uploadBuffer){
         Log.i("进入端口方法", "进入端口方法");
-//        String methodName = "FileUploadImage";
         // 创建HttpTransportSE传输对象
         HttpTransportSE ht = new HttpTransportSE(Data_up.getSERVICE_URL());
         try {
@@ -105,9 +82,20 @@ public class test_mul {
             // 实例化SoapObject对象
             SoapObject soapObject = new SoapObject(SERVICE_NAMESPACE,methodName);
 
-            soapObject.addProperty("title","");
-            soapObject.addProperty("contect","");
+
             soapObject.addProperty("bytestr",uploadBuffer);
+            soapObject.addProperty("gongwei", crm_main_activity.xianlu_up_gongwei);
+            soapObject.addProperty("gongxu",crm_main_activity.xianlu_up_gongxu);
+            soapObject.addProperty("xiangdian",crm_main_activity.xianlu_up_xiangdian);
+            soapObject.addProperty("uploaduser", Login.Login_username);
+            soapObject.addProperty("xianlu",crm_main_activity.xianlu_up_zaizhuangxianlu);
+            soapObject.addProperty("chehao",crm_main_activity.xianlu_up_chehao);
+            soapObject.addProperty("chexiang",crm_main_activity.xianlu_up_chexing);
+            soapObject.addProperty("tupianlujing","");
+            soapObject.addProperty("updatetime",MainActivity.nowadays);
+            soapObject.addProperty("phonetupianlujing","");
+
+
             envelope.bodyOut = soapObject;
             // 设置与.NET提供的webservice保持较好的兼容性
             envelope.dotNet = true;
@@ -137,5 +125,4 @@ public class test_mul {
         return null;
     };
 
-//test
 }

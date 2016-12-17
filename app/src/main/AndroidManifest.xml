@@ -55,7 +55,7 @@
 
         <activity android:name="com.example.MyFragment1.MyFragment1_broadcast"></activity>
 
-        <activity android:name="com.example.identity_pic.identity_pic_main_java"></activity>
+        <activity android:name="com.example.identity_pic.identity_pic_main.identity_pic_main_java"></activity>
 
         <activity android:name="com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity"></activity>
         <activity android:name="com.example.identity_pic.identity_selsect_sum.identity_select.xianlu_identity_activity"></activity>

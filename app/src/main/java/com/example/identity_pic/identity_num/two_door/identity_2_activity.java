@@ -31,6 +31,7 @@ public class identity_2_activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(identity_2_activity.this,identity_2_listview_main_activity1.class);
                 startActivity(intent);
+                finish();
             }
         });
         btn_identity_2_bottom_left = (Button) findViewById(R.id.btn_identity_2_bottom_left);

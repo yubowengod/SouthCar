@@ -1,4 +1,4 @@
-package com.example.identity_pic;
+package com.example.identity_pic.identity_pic_main;
 
 import android.content.Context;
 import android.telecom.TelecomManager;

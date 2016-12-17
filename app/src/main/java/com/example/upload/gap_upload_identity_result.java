@@ -1,15 +1,9 @@
 package com.example.upload;
 
 
-import android.os.Handler;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 
-import com.arlen.photo.photopickup.presenter.PhotoPresenter;
-import com.arlen.photo.ui.MainActivity;
-import com.example.identity_pic.identity_pic_main_java;
+import com.example.identity_pic.identity_pic_main.identity_pic_main_java;
 import com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity;
 import com.example.login_register_update_findinfomation.login.Login;
 
