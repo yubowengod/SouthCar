@@ -113,7 +113,7 @@ public class identity_3_result_main_activity extends AppCompatActivity {
                                                     {
                                                         result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
                                                     }
-//                                                    identity_num_result_main_textview.setText(result);
+                                                    identity_num_result_main_textview.setText(result);
                                                     identity_num_result_main_btn_view_result.setVisibility(View.VISIBLE);
                                                 }
                                             }

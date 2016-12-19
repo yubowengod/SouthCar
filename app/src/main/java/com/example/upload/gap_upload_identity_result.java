@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.identity_pic.identity_pic_main.identity_pic_main_java;
 import com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity;
 import com.example.login_register_update_findinfomation.login.Login;
+import com.example.picture_to_base64.ImageUtils;
 
 import org.kobjects.base64.Base64;
 import org.ksoap2.SoapEnvelope;
@@ -34,19 +35,20 @@ public class gap_upload_identity_result {
         try{
             for (int i = 0; i < pic_path.size(); i++) {
                 String ww=pic_path.get(i);
-                FileInputStream fis = new FileInputStream(ww);
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                byte[] buffer = new byte[4096];
-                int count = 0;
-                while((count = fis.read(buffer)) >= 0){
-                    baos.write(buffer, 0, count);
-                }
-
-                String uploadBuffer = new String(Base64.encode(baos.toByteArray()));
+//                FileInputStream fis = new FileInputStream(ww);
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                byte[] buffer = new byte[4096];
+//                int count = 0;
+//                while((count = fis.read(buffer)) >= 0){
+//                    baos.write(buffer, 0, count);
+//                }
+//
+//                String uploadBuffer = new String(Base64.encode(baos.toByteArray()));
+                String uploadBuffer = ImageUtils.bitmapToString(ww);
                 String methodName = "gap_upload_identity_result_FileUploadImage";
                 getImageFromAndroid(methodName,gap_flag.get(i), uploadBuffer);   //调用webservice
                 Log.i("connectWebService", "start");
-                fis.close();
+//                fis.close();
             }
         }
         catch(Exception e){

@@ -1,4 +1,6 @@
 package com.example.upload;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import com.arlen.photo.photopickup.presenter.PhotoPresenter;
 import com.arlen.photo.ui.MainActivity;
 import com.example.login_register_update_findinfomation.login.Login;
 import com.example.main.crm_main_activity;
+import com.example.picture_to_base64.ImageUtils;
 
 import org.kobjects.base64.Base64;
 import org.ksoap2.SoapEnvelope;
@@ -48,21 +51,26 @@ public class test_mul {
 
             for (int i = 0; i < pic_path.size(); i++) {
                 String ww=pic_path.get(i);
-                FileInputStream fis = new FileInputStream(ww);
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                byte[] buffer = new byte[4096];
-                int count = 0;
-                while((count = fis.read(buffer)) >= 0){
-                    baos.write(buffer, 0, count);
-                }
+//                FileInputStream fis = new FileInputStream(ww);
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                byte[] buffer = new byte[4096];
+//                int count = 0;
+//                while((count = fis.read(buffer)) >= 0){
+//                    baos.write(buffer, 0, count);
+//                }
+//
+//                String uploadBuffer = new String(Base64.encode(baos.toByteArray()));
 
-                String uploadBuffer = new String(Base64.encode(baos.toByteArray()));
+                String uploadBuffer = ImageUtils.bitmapToString(ww);
+
+
+
                 String methodName = "FileUploadImage";
                 getImageFromAndroid(methodName,pic_path.get(i), uploadBuffer);   //调用webservice
 
 
                 Log.i("connectWebService", "start");
-                fis.close();
+//                fis.close();
 
             }
 
@@ -70,6 +78,12 @@ public class test_mul {
             e.printStackTrace();
         }
     }
+
+
+
+
+
+
 
     public static String getImageFromAndroid(String methodName,String arg1, String uploadBuffer){
         Log.i("进入端口方法", "进入端口方法");
