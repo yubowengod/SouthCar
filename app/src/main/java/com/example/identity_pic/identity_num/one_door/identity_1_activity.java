@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_num.one_door.identity_num_listview_main.identity_num_listview_main_activity1;
+import com.example.upload.gap_upload_identity_result;
 
 /**
  * Created by GOD on 2016/10/20.
@@ -24,6 +25,7 @@ public class identity_1_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_1);
 //        no1 = new String[4];
+        gap_upload_identity_result.return_true_flag.clear();
         identity_1_activity_btn = (Button) findViewById(R.id.btn_identity_1_bottom);
 
         identity_1_activity_btn.setOnClickListener(new View.OnClickListener() {

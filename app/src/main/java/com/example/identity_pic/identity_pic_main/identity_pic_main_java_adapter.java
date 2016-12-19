@@ -22,9 +22,9 @@ public class identity_pic_main_java_adapter extends BaseAdapter {
     private Context ctx;
     /** 图片Url集合 */
     private ArrayList<String> leibie;
-    private ArrayList<String> leibie_pic;
+    private ArrayList<Integer> leibie_pic;
 
-    public identity_pic_main_java_adapter(Context ctx, ArrayList<String> leibie,ArrayList<String> leibie_pic) {
+    public identity_pic_main_java_adapter(Context ctx, ArrayList<String> leibie,ArrayList<Integer> leibie_pic) {
         this.ctx = ctx;
         this.leibie = leibie;
         this.leibie_pic = leibie_pic;
@@ -51,10 +51,13 @@ public class identity_pic_main_java_adapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = View.inflate(ctx, R.layout.identity_pic_main_listview_tem, null);
+
         TextView textView = (TextView) view.findViewById(R.id.identity_name);
         textView.setText(leibie.get(position));
+
         ImageView imageView = (ImageView) view.findViewById(R.id.identity_avatar);
         Glide.with(ctx).load(leibie_pic.get(position)).fitCenter().skipMemoryCache(true).into(imageView);
+
         return view;
     }
 

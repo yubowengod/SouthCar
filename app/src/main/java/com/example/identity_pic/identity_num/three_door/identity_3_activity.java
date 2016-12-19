@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.god.southcar.R;
 import com.example.identity_pic.identity_num.three_door.identity_num_listview_main.identity_3_listview_main_activity1;
 import com.example.identity_pic.identity_num.two_door.identity_num_listview_main.identity_2_listview_main_activity1;
+import com.example.upload.gap_upload_identity_result;
 
 /**
  * Created by GOD on 2016/10/20.
@@ -24,6 +25,7 @@ public class identity_3_activity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identity_3);
+        gap_upload_identity_result.return_true_flag.clear();
         no3 = new String[3];
         identity_3_activity_btn = (Button) findViewById(R.id.btn_identity_3_bottom);
         identity_3_activity_btn.setOnClickListener(new View.OnClickListener() {

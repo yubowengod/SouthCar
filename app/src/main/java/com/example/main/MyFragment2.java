@@ -77,41 +77,42 @@ public class MyFragment2 extends Fragment {
                 R.dimen.image_thumbnail_size);
         mImageThumbSpacing = getResources().getDimensionPixelSize(
                 R.dimen.image_thumbnail_spacing);
-        mPhotoWall = (GridView) getActivity().findViewById(R.id.gridview_fg_my);
-        mAdapter = new PhotoWallAdapter(getActivity(), 0, Images.imageThumbUrls,mPhotoWall);
-        mPhotoWall.setAdapter(mAdapter);
-        mPhotoWall.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        final int numColumns = (int) Math.floor(mPhotoWall
-                                .getWidth()
-                                / (mImageThumbSize + mImageThumbSpacing));
-                        if (numColumns > 0) {
-                            int columnWidth = (mPhotoWall.getWidth() / numColumns)
-                                    - mImageThumbSpacing;
-                            mAdapter.setItemHeight(columnWidth);
-                            mPhotoWall.getViewTreeObserver()
-                                    .removeGlobalOnLayoutListener(this);
-                        }
-                    }
-                }
-        );
+
+//        mPhotoWall = (GridView) getActivity().findViewById(R.id.gridview_fg_my);
+//        mAdapter = new PhotoWallAdapter(getActivity(), 0, Images.imageThumbUrls,mPhotoWall);
+//        mPhotoWall.setAdapter(mAdapter);
+//        mPhotoWall.getViewTreeObserver().addOnGlobalLayoutListener(
+//                new ViewTreeObserver.OnGlobalLayoutListener() {
+//                    @Override
+//                    public void onGlobalLayout() {
+//                        final int numColumns = (int) Math.floor(mPhotoWall
+//                                .getWidth()
+//                                / (mImageThumbSize + mImageThumbSpacing));
+//                        if (numColumns > 0) {
+//                            int columnWidth = (mPhotoWall.getWidth() / numColumns)
+//                                    - mImageThumbSpacing;
+//                            mAdapter.setItemHeight(columnWidth);
+//                            mPhotoWall.getViewTreeObserver()
+//                                    .removeGlobalOnLayoutListener(this);
+//                        }
+//                    }
+//                }
+//        );
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mAdapter.fluchCache();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        // 退出程序时结束所有的下载任务
-        mAdapter.cancelAllTasks();
-    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        mAdapter.fluchCache();
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        // 退出程序时结束所有的下载任务
+//        mAdapter.cancelAllTasks();
+//    }
 }
 
 

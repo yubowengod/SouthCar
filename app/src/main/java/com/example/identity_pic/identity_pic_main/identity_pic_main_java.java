@@ -19,9 +19,12 @@ import java.util.ArrayList;
  * Created by GOD on 2016/10/19.
  */
 public class identity_pic_main_java extends AppCompatActivity {
-    private  ArrayList<String> leibie = new ArrayList<String>(){{add("str01"); add("str02");add("str03");add("str04");add("str05");}};
 
-    private ArrayList<String> leibie_pic = new ArrayList<String>(){{add("1"); add("2");add("3");add("4");add("5");}};
+    private  ArrayList<String> leibie = new ArrayList<String>(){{add(null); add(null);add(null);add(null);add(null);}};
+
+    private ArrayList<Integer> leibie_pic = new ArrayList<Integer>(){{add(R.mipmap.no1_gap); add(R.mipmap.no2_gap);add(R.mipmap.no3_gap);add(R.mipmap.no4_gap);add(R.mipmap.no5_gap);}};
+
+
     public static String identity_pic_main_java_fengxileibie = "";
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,9 @@ public class identity_pic_main_java extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.identity_pic_main_listview);
 
         listView.setAdapter(new identity_pic_main_java_adapter(identity_pic_main_java.this,leibie,leibie_pic));
+
+//        listView.setAdapter(new identity_pic_main_java_adapter(identity_pic_main_java.this,null,leibie_pic));
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

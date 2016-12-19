@@ -18,6 +18,8 @@ import com.example.god.southcar.R;
 import com.example.identity_pic.identity_num.one_door.identity_1_activity;
 import com.example.identity_pic.identity_num.one_door.identity_num_listview_main.identity_num_listview_main_activity1;
 import com.example.identity_pic.identity_num.identity_num_result_main_returnfrompc.identity_num_result_main_returnfrompc_activity;
+import com.example.identity_pic.identity_num.three_door.identity_3_activity;
+import com.example.identity_pic.identity_num.two_door.identity_2_activity;
 import com.example.identity_pic.identity_selsect_sum.identity_deal.identity_deal_main_activity;
 import com.example.upload.gap_upload_identity_result;
 
@@ -116,7 +118,7 @@ public class identity_num_result_main_activity extends AppCompatActivity {
                                                     {
                                                         result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
                                                     }
-                                                    identity_num_result_main_textview.setText(result);
+//                                                    identity_num_result_main_textview.setText(result);
                                                     identity_num_result_main_btn_view_result.setVisibility(View.VISIBLE);
                                                 }
                                             }

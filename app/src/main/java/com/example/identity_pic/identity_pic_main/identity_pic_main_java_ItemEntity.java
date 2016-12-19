@@ -9,15 +9,15 @@ public class identity_pic_main_java_ItemEntity {
 
     private ArrayList<String> leibie;
 
-    private ArrayList<String> leibie_pic;
+    private ArrayList<Integer> leibie_pic;
 
-    public identity_pic_main_java_ItemEntity(ArrayList<String> leibie,ArrayList<String> leibie_pic) {
+    public identity_pic_main_java_ItemEntity(ArrayList<String> leibie,ArrayList<Integer> leibie_pic) {
         super();
         this.leibie = leibie;
         this.leibie_pic = leibie_pic;
     }
 
-    public ArrayList<String> getleibie_pic() {
+    public ArrayList<Integer> getleibie_pic() {
         return leibie_pic;
     }
 
@@ -25,7 +25,7 @@ public class identity_pic_main_java_ItemEntity {
         return leibie;
     }
 
-    public void setleibie_pic(ArrayList<String> leibie_pic) {
+    public void setleibie_pic(ArrayList<Integer> leibie_pic) {
         this.leibie_pic = leibie_pic;
     }
 

@@ -31,6 +31,7 @@ import com.yuyh.library.imgsel.ImgSelActivity;
 import com.yuyh.library.imgsel.ImgSelConfig;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -133,6 +134,17 @@ public class test_activity extends AppCompatActivity {
         editText.setText("1@2@3@4@5@6@7");
 
         final ProgressDialog dialog = ProgressDialog.show(test_activity.this, "数据上传中", "请稍候...", true);
+
+        Calendar cld = Calendar.getInstance();
+        int YY = cld.get(Calendar.YEAR);
+        int MM = cld.get(Calendar.MONTH)+1;
+        int DD = cld.get(Calendar.DATE);
+        int HH = cld.get(Calendar.HOUR_OF_DAY);
+        int mm = cld.get(Calendar.MINUTE);
+        int ss = cld.get(Calendar.SECOND);
+        int MI = cld.get(Calendar.MILLISECOND);
+//                2011-12-15 10:40:10.345
+        identity_deal_main_activity.nowadays = YY+"-"+MM+"-"+DD+" "+HH+":"+mm+":"+ss;
 
         if (pic_path_test.size()>0){
             executorService.execute(new Runnable() {
