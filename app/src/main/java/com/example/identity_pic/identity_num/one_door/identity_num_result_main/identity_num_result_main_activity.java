@@ -110,13 +110,14 @@ public class identity_num_result_main_activity extends AppCompatActivity {
                                         mainHandler.post(new Runnable() {
                                             @Override
                                             public void run() {
+
                                                 if (gap_upload_identity_result.return_true_flag.size() == 4)
                                                 {
                                                     dialog.dismiss();
                                                     String result = "";
                                                     for (int i=0;i<4;i++)
                                                     {
-                                                        result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
+                                                        result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + "\n";
                                                     }
                                                     identity_num_result_main_textview.setText(result);
                                                     identity_num_result_main_btn_view_result.setVisibility(View.VISIBLE);

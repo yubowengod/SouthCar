@@ -116,7 +116,7 @@ public class identity_2_result_main_activity extends AppCompatActivity {
                                                     String result = "";
                                                     for (int i=0;i<4;i++)
                                                     {
-                                                        result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + " @ ";
+                                                        result = result + gap_upload_identity_result.return_true_flag.get(i).toString() + "\n";
                                                     }
                                                     identity_num_result_main_textview.setText(result);
                                                     identity_num_result_main_btn_view_result.setVisibility(View.VISIBLE);

@@ -47,7 +47,9 @@ public class identity_num_result_main_returnfrompc_activity extends AppCompatAct
 //                    2返回值
 //                            3
             picpath.add(return_result[0]);
+
             String[] return_result_num = return_result[1].split(",");
+
             if (return_result_num.length==5)
             {
                 biaodingzhi.add(return_result_num[0]);
@@ -56,14 +58,15 @@ public class identity_num_result_main_returnfrompc_activity extends AppCompatAct
                 chuizhizuida.add(return_result_num[3]);
                 chuizhizuixiao.add(return_result_num[4]);
             }
-            if (return_result_num.length==3)
+            if (return_result_num.length==1)
             {
                 biaodingzhi.add(return_result_num[0]);
-                shuipingzuida.add(return_result_num[1]);
-                shuipingzuixiao.add(return_result_num[2]);
-                chuizhizuida.add("0");
-                chuizhizuixiao.add("0");
+                shuipingzuida.add(return_result_num[0]);
+                shuipingzuixiao.add(return_result_num[0]);
+                chuizhizuida.add(return_result_num[0]);
+                chuizhizuixiao.add(return_result_num[0]);
             }
+
         }
         for (String path : gap_upload_identity_result.return_true_flag) {
             i++;
